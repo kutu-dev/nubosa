@@ -26,6 +26,10 @@
         name = "Home Manager option search";
         url = "https://home-manager-options.extranix.com";
       }
+      {
+        name = "Darwin configuration options";
+        url = "https://daiderd.com/nix-darwin/manual/index.html";
+      }
     ];
   }
 ]

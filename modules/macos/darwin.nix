@@ -1,16 +1,17 @@
 {inputs, ...}: {
   nubosa = inputs.nix-darwin.lib.darwinSystem {
     system = "aarch64-darwin";
+    pkgs = import inputs.nixpkgs {
+      system = "aarch64-darwin";
+      overlays = [
+        inputs.nixpkgs-firefox-darwin.overlay
+        inputs.nur.overlay
+      ];
+      config.allowUnfree = true;
+    };
+
     modules = [
       {
-        nixpkgs = {
-          overlays = [
-            inputs.nixpkgs-firefox-darwin.overlay
-            inputs.nur.overlay
-          ];
-          config.allowUnfree = true;
-        };
-
         services.nix-daemon.enable = true;
         users.users.kutu.home = "/Users/kutu";
 
@@ -28,7 +29,7 @@
             show-recents = false;
             persistent-apps = [];
             persistent-others = [
-              "~/Downloads/"
+              "/Users/kutu/Downloads/"
             ];
           };
 

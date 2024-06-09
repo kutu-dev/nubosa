@@ -18,6 +18,6 @@ update:
   nix flake update
 
 # Build the flake and switch the Home Manager config
-switch-macos:
+switch-macos: setup
   nix run .#nix-darwin -- switch --flake .#nubosa
   nix run .#defaultbrowser -- firefoxdeveloperedition
