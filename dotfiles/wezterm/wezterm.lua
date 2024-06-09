@@ -1,6 +1,10 @@
 local wezterm = require('wezterm')
 local config = wezterm.config_builder()
 
+local user = os.getenv("USER")
+
+config.default_prog = { "/etc/profiles/per-user/" .. user .. "/bin/fish" }
+
 config.front_end = "WebGpu"
 config.enable_wayland = false
 

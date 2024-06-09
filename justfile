@@ -9,6 +9,15 @@ help:
 setup:
   cp nix.conf "${XDG_CONFIG_HOME:-$HOME/.config}/nix/"
 
+# Format all the NIX files
+format:
+  nix fmt
+
+# Update and relock the inputs of the flake
+update:
+  nix flake update
+
 # Build the flake and switch the Home Manager config
-switch-home:
-  nix run .#home-manager -- switch --flake .
+switch-macos:
+  nix run .#nix-darwin -- switch --flake .#nubosa
+  nix run .#defaultbrowser -- firefoxdeveloperedition

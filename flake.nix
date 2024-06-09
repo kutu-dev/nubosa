@@ -4,29 +4,28 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
 
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
+    nixpkgs-firefox-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    flake-parts = {
-      url = "github:hercules-ci/flake-parts";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    nur.url = "github:nix-community/NUR";
+    nur.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-darwin.url = "github:lnl7/nix-darwin/master";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-parts.inputs.nixpkgs.follows = "nixpkgs";
 
     mac-app-util.url = "github:hraban/mac-app-util";
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    home-manager,
-    flake-parts,
-    mac-app-util,
-  }:
-    flake-parts.lib.mkFlake {inherit inputs;} ({withSystem, ...}: {
+  outputs = inputs @ {self, ...}:
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
-        "aarch64-darwin"
+        "x86_64-linux" "aarch64-darwin"
       ];
 
       perSystem = {
@@ -36,21 +35,14 @@
       }: {
         formatter = pkgs.alejandra;
 
-        packages.home-manager = inputs'.home-manager.packages.default;
+        packages.nix-darwin = inputs'.nix-darwin.packages.default;
+        packages.defaultbrowser = pkgs.defaultbrowser;
       };
 
       flake = {
-        homeConfigurations = withSystem "aarch64-darwin" ({system, ...}: {
-          "kutu" = home-manager.lib.homeManagerConfiguration {
-            pkgs = import nixpkgs {inherit system;};
-
-            modules = [
-              ./modules/macos/home.nix
-              mac-app-util.homeManagerModules.default
-              ./modules/common/home.nix
-            ];
-          };
-        });
+        darwinConfigurations = import ./modules/macos/darwin.nix {
+          inherit inputs;
+        };
       };
-    });
+    };
 }

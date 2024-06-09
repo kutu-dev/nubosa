@@ -5,7 +5,7 @@
 }: let
   dotfilesSymlink = path: config.lib.file.mkOutOfStoreSymlink ("${config.xdg.userDirs.documents}/dev/nubosa/dotfiles/" + path);
 in {
-  imports = [./programs/starship.nix];
+  imports = [./programs/starship.nix ./programs/firefox/default.nix];
 
   home.username = "kutu";
   home.stateVersion = "24.11";
@@ -17,6 +17,9 @@ in {
     eza
     fortune
     wezterm
+    (discord.override {
+      withVencord = true;
+    })
   ];
 
   programs.zoxide.enable = true;
