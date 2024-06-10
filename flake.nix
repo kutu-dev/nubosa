@@ -2,7 +2,7 @@
   description = "Multiplatform dotfiles for development and gaming usage.";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
     nixpkgs-firefox-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -25,7 +25,8 @@
   outputs = inputs @ {self, ...}:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
-        "x86_64-linux" "aarch64-darwin"
+        "x86_64-linux"
+        "aarch64-darwin"
       ];
 
       perSystem = {

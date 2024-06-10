@@ -15,7 +15,7 @@ format:
 
 # Update and relock the inputs of the flake
 update:
-  nix flake update
+  nix flake update --commit-lock-file
 
 # Build the flake and switch the Home Manager config
 switch-macos: setup

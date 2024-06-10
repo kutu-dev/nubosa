@@ -10,18 +10,6 @@ in {
   home.username = "kutu";
   home.stateVersion = "24.11";
 
-  home.packages = with pkgs; [
-    neovim
-    just
-    fish
-    eza
-    fortune
-    wezterm
-    (discord.override {
-      withVencord = true;
-    })
-  ];
-
   programs.zoxide.enable = true;
 
   xdg.configFile = {

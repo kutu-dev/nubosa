@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-devedition-bin;
@@ -37,16 +37,16 @@
 
       settings = import ./settings.nix;
 
-      userContent= ''
-      @-moz-document url(about:home), url(about:newtab) {
-        body {
-          background-color: oklch(22.57% 0.019 280.25) !important;
+      userContent = ''
+        @-moz-document url(about:home), url(about:newtab) {
+          body {
+            background-color: oklch(22.57% 0.019 280.25) !important;
+          }
+
+          .search-inner-wrapper {
+            --newtab-background-color-secondary: oklch(24.86% 0.025 281.01);
+          }
         }
-        
-        .search-inner-wrapper {
-          --newtab-background-color-secondary: oklch(24.86% 0.025 281.01);
-        }
-      }
       '';
     };
   };
