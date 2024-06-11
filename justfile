@@ -6,8 +6,10 @@ help:
   just --list
 
 # Generate Nix config to allow new subcommands and activate flake support
+nix_config_path := `echo ${XDG_CONFIG_HOME:-$HOME/.config}/nix/`
 setup:
-  cp nix.conf "${XDG_CONFIG_HOME:-$HOME/.config}/nix/"
+  mkdir -p {{nix_config_path}}
+  cp nix.conf {{nix_config_path}}
 
 # Format all the NIX files
 format:
@@ -17,7 +19,16 @@ format:
 update:
   nix flake update --commit-lock-file
 
-# Build the flake and switch the Home Manager config
+# Switch the nix-darwin config
 switch-macos: setup
   nix run .#nix-darwin -- switch --flake .#nubosa
   nix run .#defaultbrowser -- firefoxdeveloperedition
+
+# Switch the NixOS config
+switch-nixos: setup
+  sudo nixos-rebuild switch --flake .#nubosa
+
+# Switch the config based on the platform where the recipe is run
+platform := if `uname -s` == "Linux" { "switch-nixos" } else { "switch-darwin" }
+switch:
+  just {{platform}}

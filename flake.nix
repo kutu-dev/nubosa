@@ -16,34 +16,49 @@
     nix-darwin.url = "github:lnl7/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-parts.inputs.nixpkgs.follows = "nixpkgs";
-
     mac-app-util.url = "github:hraban/mac-app-util";
   };
 
-  outputs = inputs @ {self, ...}:
-    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      systems = [
+  outputs = inputs @ {self, ...}: let
+    getPkgs = {
+      system,
+      extraOverlays ? [],
+    }:
+      import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+        overlays =
+          [
+            inputs.nur.overlay
+          ]
+          ++ extraOverlays;
+      };
+
+    forAllSystems = function:
+      inputs.nixpkgs.lib.genAttrs [
         "x86_64-linux"
         "aarch64-darwin"
-      ];
+      ] (
+        system:
+          function
+          (getPkgs {inherit system;})
+      );
+  in {
+    formatter = forAllSystems (pkgs: pkgs.alejandra);
 
-      perSystem = {
-        inputs',
-        pkgs,
-        ...
-      }: {
-        formatter = pkgs.alejandra;
+    packages = forAllSystems (pkgs: {
+      defaultbrowser = pkgs.defaultbrowser;
+      nix-darwin = inputs.nix-darwin.packages.default;
+    });
 
-        packages.nix-darwin = inputs'.nix-darwin.packages.default;
-        packages.defaultbrowser = pkgs.defaultbrowser;
-      };
-
-      flake = {
-        darwinConfigurations = import ./modules/macos/darwin.nix {
-          inherit inputs;
-        };
-      };
+    nixosConfigurations = import ./platform/nixos/modules/nixos.nix {
+      inherit inputs;
+      pkgs = getPkgs {system = "x86_64-linux";};
     };
+
+    darwinConfigurations = import ./platform/macos/modules/darwin.nix {
+      inherit inputs;
+      pkgs = getPkgs {system = "aarch64-darwin";};
+    };
+  };
 }

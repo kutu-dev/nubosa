@@ -5,7 +5,8 @@ local user = os.getenv("USER")
 
 config.default_prog = { "/etc/profiles/per-user/" .. user .. "/bin/fish" }
 
-config.front_end = "WebGpu"
+-- TODO: First install Nvidia drivers
+-- config.front_end = "WebGpu"
 config.enable_wayland = false
 
 config.window_close_confirmation = "NeverPrompt"
@@ -18,7 +19,7 @@ config.font = wezterm.font_with_fallback {
   'Symbols Nerd Font',
 }
 
-config.font_size = 24
+config.font_size = 16
 config.hide_tab_bar_if_only_one_tab = true
 
 config.window_padding = {

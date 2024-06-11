@@ -32,4 +32,8 @@
       }
     ];
   }
+  {
+    name = "Backloggd";
+    url = "https://backloggd.com";
+  }
 ]

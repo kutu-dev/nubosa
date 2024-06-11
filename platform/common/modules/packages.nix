@@ -11,8 +11,8 @@ with pkgs; [
   })
   jetbrains-mono
   (nerdfonts.override {
-        fonts = [
-          "NerdFontsSymbolsOnly"
-        ];
-      })
+    fonts = [
+      "NerdFontsSymbolsOnly"
+    ];
+  })
 ]

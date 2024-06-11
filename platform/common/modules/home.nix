@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  dotfilesSymlink = path: config.lib.file.mkOutOfStoreSymlink ("${config.xdg.userDirs.documents}/dev/nubosa/dotfiles/" + path);
+  dotfilesSymlink = path: config.lib.file.mkOutOfStoreSymlink ("/home/kutu/documents/dev/nubosa/platform/common/dotfiles/" + path);
 in {
   imports = [./programs/starship.nix ./programs/firefox/default.nix];
 
@@ -11,6 +11,12 @@ in {
   home.stateVersion = "24.11";
 
   programs.zoxide.enable = true;
+
+  programs.git = {
+    enable = true;
+    userName = "Kutu";
+    userEmail = "code@dobon.dev";
+  };
 
   xdg.configFile = {
     fish.source = dotfilesSymlink "fish";

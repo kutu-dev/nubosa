@@ -1,14 +1,11 @@
-{inputs, ...}: {
+{
+  inputs,
+  pkgs,
+  ...
+}: {
   nubosa = inputs.nix-darwin.lib.darwinSystem {
     system = "aarch64-darwin";
-    pkgs = import inputs.nixpkgs {
-      system = "aarch64-darwin";
-      overlays = [
-        inputs.nixpkgs-firefox-darwin.overlay
-        inputs.nur.overlay
-      ];
-      config.allowUnfree = true;
-    };
+    inherit pkgs;
 
     modules = [
       {
@@ -63,7 +60,7 @@
         home-manager.users.kutu.imports = [
           ./home.nix
           inputs.mac-app-util.homeManagerModules.default
-          ../common/home.nix
+          ../../common/modules/home.nix
         ];
       }
     ];
