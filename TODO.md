@@ -3,6 +3,9 @@
 - Add git config.
 - Add `nix` config (maybe).
 
+### Nvim
+- NIX and JUSTFILE support.
+
 ## NixOS
 - Add posy cursors.
 - Clean up `configuration.nix`

@@ -17,6 +17,7 @@ in {
     enable = true;
     userName = "Kutu";
     userEmail = "code@dobon.dev";
+    extraConfig.push.autoSetupRemote = true;
   };
 
   xdg.configFile = {
