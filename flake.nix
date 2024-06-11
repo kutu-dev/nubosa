@@ -48,6 +48,9 @@
 
     packages = forAllSystems (pkgs: {
       defaultbrowser = pkgs.defaultbrowser;
+      shellcheck = pkgs.shellcheck;
+      shfmt = pkgs.shfmt;
+      jq = pkgs.jq;
       nix-darwin = inputs.nix-darwin.packages.default;
     });
 

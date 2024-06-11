@@ -11,6 +11,7 @@ in {
   home.stateVersion = "24.11";
 
   programs.zoxide.enable = true;
+  programs.ripgrep.enable = true;
 
   programs.git = {
     enable = true;

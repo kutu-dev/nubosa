@@ -11,13 +11,20 @@ setup:
   mkdir -p {{nix_config_path}}
   cp nix.conf {{nix_config_path}}
 
-# Format all the NIX files
-format:
+# Format and lint all NIX and POSIX shell files
+check:
   nix fmt
+  nix run .#shfmt -- .
+  ./check-justfile.sh
 
 # Update and relock the inputs of the flake
 update:
   nix flake update --commit-lock-file
+
+# See all the things that need to be done
+todo:
+  glow TODO.md
+  rg TODO
 
 # Switch the nix-darwin config
 switch-macos: setup

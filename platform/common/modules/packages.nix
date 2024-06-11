@@ -15,4 +15,6 @@ with pkgs; [
       "NerdFontsSymbolsOnly"
     ];
   })
+  glow
+  python312
 ]
