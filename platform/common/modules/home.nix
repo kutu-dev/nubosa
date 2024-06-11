@@ -3,7 +3,7 @@
   config,
   ...
 }: let
-  dotfilesSymlink = path: config.lib.file.mkOutOfStoreSymlink ("/home/kutu/documents/dev/nubosa/platform/common/dotfiles/" + path);
+  dotfilesSymlink = path: config.lib.file.mkOutOfStoreSymlink ("${config.home.homeDirectory}/documents/dev/nubosa/platform/common/dotfiles/" + path);
 in {
   imports = [./programs/starship.nix ./programs/firefox/default.nix];
 

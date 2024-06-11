@@ -13,5 +13,5 @@ in {
 
   home.packages = pkgs.callPackage ../../common/modules/packages.nix {} ++ extraPackages;
 
-  home.file."Library/LaunchAgents/dev.dobon.nubosa.random-change-wallpaper.plist".source = ../../dotfiles/launch-agents/dev.dobon.nubosa.random-change-wallpaper.plist;
+  home.file."Library/LaunchAgents/dev.dobon.nubosa.random-change-wallpaper.plist".source = ../dotfiles/launch-agents/dev.dobon.nubosa.random-change-wallpaper.plist;
 }

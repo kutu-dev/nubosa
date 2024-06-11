@@ -36,6 +36,6 @@ switch-nixos: setup
   sudo nixos-rebuild switch --flake .#nubosa
 
 # Switch the config based on the platform where the recipe is run
-platform := if `uname -s` == "Linux" { "switch-nixos" } else { "switch-darwin" }
+platform := if `uname -s` == "Linux" { "switch-nixos" } else { "switch-macos" }
 switch:
   just {{platform}}

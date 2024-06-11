@@ -51,8 +51,12 @@
       shellcheck = pkgs.shellcheck;
       shfmt = pkgs.shfmt;
       jq = pkgs.jq;
-      nix-darwin = inputs.nix-darwin.packages.default;
+
+      # This is not an issue because `nix-darwin` is only useful
+      # in this system.
+      nix-darwin = inputs.nix-darwin.packages."aarch64-darwin".default;
     });
+
 
     nixosConfigurations = import ./platform/nixos/modules/nixos.nix {
       inherit inputs;
@@ -61,7 +65,7 @@
 
     darwinConfigurations = import ./platform/macos/modules/darwin.nix {
       inherit inputs;
-      pkgs = getPkgs {system = "aarch64-darwin";};
+      pkgs = getPkgs {system = "aarch64-darwin"; extraOverlays = [inputs.nixpkgs-firefox-darwin.overlay];};
     };
   };
 }
