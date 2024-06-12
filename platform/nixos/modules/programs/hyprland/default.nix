@@ -21,13 +21,16 @@
 
     monitor = [
       "DP-3, 1920x1080@240, 0x0, 1"
-      ", preferred, auto, 1"
+
+      # Fake monitor bug caused by Nvidia, need to be disable or it will crash when
+      # you move around workspaces
+      "Unknown-1, disable"
     ];
 
     exec-once = import ./exec-once.nix;
 
     general = {
-     layout = "dwindle";
+      layout = "dwindle";
       cursor_inactive_timeout = 5;
       gaps_in = 3;
       gaps_out = 6;
@@ -47,7 +50,5 @@
     };
 
     windowrulev2 = import ./window-rules.nix;
-
-    workspace = [ "DP-3, 2, default: true" ];
   };
 }

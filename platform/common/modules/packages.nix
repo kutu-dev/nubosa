@@ -15,6 +15,7 @@ with pkgs; [
   })
   glow
   pavucontrol
+  protonup
 
   # For nvim LSPs
   python312

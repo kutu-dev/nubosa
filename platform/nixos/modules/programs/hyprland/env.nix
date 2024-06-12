@@ -1,4 +1,8 @@
 [
+  # Hyprland settings
+  "HYPRCURSOR_THEME, Bibata-Modern-Classic"
+  "HYPRCURSOR_SIZE, 24"
+
   # GTK settings
   "GDK_BACKEND, wayland,x11,*"
   # TODO: After installing the GTK theme
@@ -8,8 +12,7 @@
   "QT_QPA_PLATFORM, wayland;xcb"
   "XCURSOR_SIZE, 24"
   "T_QPA_PLATFORM, wayland"
-  # TODO: After installing the posy cursors
-  # "XCURSOR_THEME, posy-black"
+  "XCURSOR_THEME, Bibata-Modern-Classic"
   # TODO: After installing the QT theme
   # "QT_STYLE_OVERRIDE, kvantum"
 

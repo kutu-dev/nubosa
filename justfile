@@ -24,16 +24,17 @@ update:
 # See all the things that need to be done
 todo:
   glow TODO.md
-  rg TODO
+  rg TODO:
 
 # Switch the nix-darwin config
-switch-macos: setup
+switch-macos:
   nix run .#nix-darwin -- switch --flake .#nubosa
   nix run .#defaultbrowser -- firefoxdeveloperedition
 
 # Switch the NixOS config
-switch-nixos: setup
+switch-nixos:
   sudo nixos-rebuild switch --flake .#nubosa
+  STEAM_EXTRA_COMPAT_TOOLS_PATHS="$HOME/.steam/root/compatibilitytools.d/" protonup -y
 
 # Switch the config based on the platform where the recipe is run
 platform := if `uname -s` == "Linux" { "switch-nixos" } else { "switch-macos" }

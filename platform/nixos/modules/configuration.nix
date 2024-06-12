@@ -4,6 +4,7 @@
   ...
 }: {
   boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "valhalla";
@@ -44,9 +45,9 @@
   };
 
   hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
 
   # Also set the drive for Wayland
@@ -72,12 +73,14 @@
       gamescopeSession.enable = true;
       remotePlay.openFirewall = true;
     };
+
+    gamemode.enable = true;
   };
 
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-hyprland pkgs.xdg-desktop-portal-gtk];
     config.common.default = "*";
   };
 

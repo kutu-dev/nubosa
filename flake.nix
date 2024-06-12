@@ -57,7 +57,6 @@
       nix-darwin = inputs.nix-darwin.packages."aarch64-darwin".default;
     });
 
-
     nixosConfigurations = import ./platform/nixos/modules/nixos.nix {
       inherit inputs;
       pkgs = getPkgs {system = "x86_64-linux";};
@@ -65,7 +64,10 @@
 
     darwinConfigurations = import ./platform/macos/modules/darwin.nix {
       inherit inputs;
-      pkgs = getPkgs {system = "aarch64-darwin"; extraOverlays = [inputs.nixpkgs-firefox-darwin.overlay];};
+      pkgs = getPkgs {
+        system = "aarch64-darwin";
+        extraOverlays = [inputs.nixpkgs-firefox-darwin.overlay];
+      };
     };
   };
 }

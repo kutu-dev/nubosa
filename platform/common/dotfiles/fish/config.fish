@@ -8,11 +8,6 @@ if status is-interactive
     fish_add_path -g "/run/current-system/sw/bin/"
     fish_add_path -g "/run/wrappers/bin"
 
-    # TODO: Remove this (?)
-    fish_add_path -g "/usr/local/bin/"
-    fish_add_path -g "$HOME/.local/bin/"
-    fish_add_path -g "/opt/texlive/2023/bin/x86_64-linux/"
-
     # Source scripts
     starship init fish | source
     enable_transience

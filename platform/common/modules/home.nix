@@ -28,6 +28,18 @@ in {
     };
   };
 
+  nix = {
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
+
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
+
   xdg.configFile = {
     fish.source = dotfilesSymlink "fish";
     nvim.source = dotfilesSymlink "nvim";

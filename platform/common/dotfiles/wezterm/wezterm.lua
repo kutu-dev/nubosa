@@ -5,8 +5,6 @@ local user = os.getenv("USER")
 
 config.default_prog = { "/etc/profiles/per-user/" .. user .. "/bin/fish" }
 
--- TODO: First install Nvidia drivers
--- config.front_end = "WebGpu"
 config.enable_wayland = false
 
 config.window_close_confirmation = "NeverPrompt"
