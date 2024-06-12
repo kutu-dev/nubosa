@@ -7,6 +7,7 @@
   # QT settings
   "QT_QPA_PLATFORM, wayland;xcb"
   "XCURSOR_SIZE, 24"
+  "T_QPA_PLATFORM, wayland"
   # TODO: After installing the posy cursors
   # "XCURSOR_THEME, posy-black"
   # TODO: After installing the QT theme
@@ -23,12 +24,14 @@
   "XDG_SESSION_TYPE, wayland"
   "XDG_SESSION_DESKTOP, Hyprland"
 
+  # Electron settings
+  "NIXOS_OZONE_WL, 1"
+
   # Nvidia settings
-  # TODO: After installing the Nvidia drivers
-  # "GBM_BACKEND, nvidia-drm"
-  # "__GLX_VENDOR_LIBRARY_NAME, nvidia"
-  # "LIBVA_DRIVER_NAME, nvidia"
-  # "__GL_GSYNC_ALLOWED, 1"
-  # "__GL_VRR_ALLOWED, 0"
-  # "WLR_DRM_NO_ATOMIC, 1"
+  "GBM_BACKEND, nvidia-drm"
+  "__GLX_VENDOR_LIBRARY_NAME, nvidia"
+  "LIBVA_DRIVER_NAME, nvidia"
+  "__GL_GSYNC_ALLOWED, 1"
+  "__GL_VRR_ALLOWED, 0"
+  "WLR_DRM_NO_ATOMIC, 1"
 ]

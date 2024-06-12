@@ -15,6 +15,7 @@
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
+        home-manager.backupFileExtension = "backup";
         home-manager.users.kutu.imports = [
           ./home.nix
           ../../common/modules/home.nix

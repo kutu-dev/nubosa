@@ -17,7 +17,7 @@ return {
   event = { "BufReadPost", "BufNewFile", "BufWritePre" },
 
   opts = {
-    ensure_installed = { "lua_ls", "pylsp"},
+    ensure_installed = { "lua_ls", "pylsp" },
 
     handlers = {
       default_setup,

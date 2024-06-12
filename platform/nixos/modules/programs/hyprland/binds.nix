@@ -47,6 +47,7 @@
 
     # App shortcuts
     "$mod, T, exec, wezterm"
+    "$mod, SPACE, exec, eval $(tofi-drun)"
   ];
 
   bindm = [

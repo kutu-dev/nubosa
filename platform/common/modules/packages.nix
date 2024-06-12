@@ -6,9 +6,7 @@ with pkgs; [
   fortune
   eza
   wezterm
-  (discord.override {
-    withVencord = true;
-  })
+  vesktop
   jetbrains-mono
   (nerdfonts.override {
     fonts = [
@@ -16,5 +14,9 @@ with pkgs; [
     ];
   })
   glow
+  pavucontrol
+
+  # For nvim LSPs
   python312
+  gcc
 ]

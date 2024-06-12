@@ -1,16 +1,16 @@
 #!/usr/bin/env sh
 
 steam_windows_opened=0
-vencord_windows_opened=0
+discord_windows_opened=0
 
 handle() {
 	case $1 in
-	openwindow\>\>*,*,vesktop,*)
-		# Avoid unsetting the window rule when the Steam update popup appears
+	openwindow\>\>*,*,discord,*)
+		# Avoid unsetting the window rule when the Discord update popup appears
 		if [ $vencord_windows_opened -eq 2 ]; then
-			hyprctl keyword windowrulev2 "workspace unset, class:vesktop"
+			hyprctl keyword windowrulev2 "workspace unset, class:discord"
 		else
-			vencord_windows_opened=$((vencord_windows_opened + 1))
+			discord_windows_opened=$((discord_windows_opened + 1))
 		fi
 		;;
 

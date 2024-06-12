@@ -8,12 +8,13 @@ local options = {
 }
 
 local global = {
-    mapleader = " "
+    mapleader = " ",
+    do_filetype_lua = 1,
 }
 
 local window = {
     number = true,
-    relativenumber = true
+    relativenumber = true,
 }
 
 for k, v in pairs(options) do

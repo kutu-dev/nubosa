@@ -5,18 +5,20 @@ return {
     },
 
     build = ':TSUpdate',
-
-    event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    lazy = false,
 
     opts = {
-      ensure_installed = {
-        "markdown",
-        "lua",
-        "python",
-      },
+      ensure_installed= "all",
+
+      sync_install = true,
+      auto_install = true,
 
       highlight = {
         enable = true
-      }
+      },
+
+      indent = {
+        enable = true
+      },
     }
 }

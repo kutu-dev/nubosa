@@ -20,6 +20,14 @@ in {
     extraConfig.push.autoSetupRemote = true;
   };
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      color_theme = "tokyo-night";
+      vim_keys = true;
+    };
+  };
+
   xdg.configFile = {
     fish.source = dotfilesSymlink "fish";
     nvim.source = dotfilesSymlink "nvim";
