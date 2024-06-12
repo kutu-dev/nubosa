@@ -1,13 +1,18 @@
 {
   "extensions.autoDisableScopes" = 0;
   "extensions.update.enabled" = false;
+  "extensions.update.autoUpdateDefault" = false;
   "extensions.getAddons.showPane" = false;
   "extensions.htmlaboutaddons.recommendations.enabled" = false;
   "extensions.pocket.enabled" = false;
 
+  "app.update.auto" = false;
+  "app.update.enabled" = false;
+
   "app.normandy.enabled" = false;
   "app.normandy.api_url" = "";
   "app.normandy.first_run" = false;
+
   "app.shield.optoutstudies.enabled" = false;
 
   "dom.security.https_only_mode" = true;
@@ -15,6 +20,7 @@
 
   "browser.tabs.remote.autostart" = false;
   "browser.urlbar.suggest.calculator" = true;
+  "browser.search.update" = false;
 
   "browser.aboutConfig.showWarning" = false;
   "browser.shell.checkDefaultBrowser" = false;

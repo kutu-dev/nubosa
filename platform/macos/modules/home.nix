@@ -14,4 +14,8 @@ in {
   home.packages = pkgs.callPackage ../../common/modules/packages.nix {} ++ extraPackages;
 
   home.file."Library/LaunchAgents/dev.dobon.nubosa.random-change-wallpaper.plist".source = ../dotfiles/launch-agents/dev.dobon.nubosa.random-change-wallpaper.plist;
+
+  # Disable the creation of `.DS_Store` files on Network and USB mounted devices
+  targets.darwin.defaults."com.apple.desktopservices".DSDontWriteNetworkStores = true;
+  targets.darwin.defaults."com.apple.desktopservices".DSDontWriteUSBStores = true;
 }

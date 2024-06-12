@@ -6,7 +6,6 @@ with pkgs; [
   fortune
   eza
   wezterm
-  vesktop
   jetbrains-mono
   (nerdfonts.override {
     fonts = [
@@ -14,10 +13,10 @@ with pkgs; [
     ];
   })
   glow
-  pavucontrol
-  protonup
 
   # For nvim LSPs
   python312
   gcc
+] ++ [
+pkgs.master.vesktop
 ]

@@ -13,6 +13,8 @@
     noto-fonts-cjk
     noto-fonts-emoji
     socat
+    pavucontrol
+    protonup
   ];
 
   extraScripts = [
