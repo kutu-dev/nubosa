@@ -1,7 +1,7 @@
 # TODO
+
 ## Common
-- Syncthing.
-- Git abbrs
+- Firefox dev tools right.
 
 ### Nvim
 - NIX and JUSTFILE support.
@@ -10,9 +10,4 @@
 
 ## NixOS
 - Notification daemon (dunst or ags).
-- Add second disk.
-- Mount swap.
-
-## macOS
-- Disable hot corners.
-- com.apple.desktopservices disable DS_Store.
+- Remove tofi cache.

@@ -18,6 +18,7 @@
         home-manager.backupFileExtension = "backup";
         home-manager.users.kutu.imports = [
           ./home.nix
+          inputs.ags.homeManagerModules.default
           ../../common/modules/home.nix
         ];
       }

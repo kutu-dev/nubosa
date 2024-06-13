@@ -2,9 +2,7 @@
   pkgs,
   config,
   ...
-}: let
-  dotfilesSymlink = path: config.lib.file.mkOutOfStoreSymlink ("${config.home.homeDirectory}/documents/dev/nubosa/platform/common/dotfiles/" + path);
-in {
+}: {
   imports = [./programs/starship.nix ./programs/firefox/default.nix];
 
   home.username = "kutu";
@@ -36,13 +34,7 @@ in {
 
     settings = {
       auto-optimise-store = true;
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = ["nix-command" "flakes"];
     };
-  };
-
-  xdg.configFile = {
-    fish.source = dotfilesSymlink "fish";
-    nvim.source = dotfilesSymlink "nvim";
-    wezterm.source = dotfilesSymlink "wezterm";
   };
 }

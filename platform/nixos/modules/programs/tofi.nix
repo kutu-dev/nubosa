@@ -4,7 +4,9 @@
     font = "JetBrains Mono";
     font-size = 20;
 
-    prompt-text = "Open: ";
+    # Double quotes are needed to avoid Home Manager
+    # to remove the trailing space
+    prompt-text = "\"Open: \"";
     result-spacing = 25;
     num-results = 5;
 

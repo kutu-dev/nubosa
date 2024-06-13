@@ -3,7 +3,11 @@
   pkgs,
   ...
 }: let
-  createScript = scriptName: pkgs.writeShellScriptBin (builtins.elemAt (pkgs.lib.strings.splitString "." scriptName) 0) (builtins.readFile (../scripts + "/${scriptName}"));
+  functions = import ../../common/modules/functions.nix {
+    inherit config;
+    inherit pkgs;
+    scriptsPath = ../scripts;
+  };
 
   extraPackages = with pkgs; [
     wl-clipboard
@@ -15,14 +19,18 @@
     socat
     pavucontrol
     protonup
+    mangohud
+    prismlauncher
+    hyprpicker
+    swww
   ];
 
   extraScripts = [
-    (createScript "system-notification.sh")
-    (createScript "screenshot.sh")
-    (createScript "select-area-screenshot.sh")
-    (createScript "screenshot-to-clipboard.sh")
-    (createScript "select-area-screenshot-to-clipboard.sh")
+    (functions.createScript "system-notification.sh")
+    (functions.createScript "screenshot.sh")
+    (functions.createScript "select-area-screenshot.sh")
+    (functions.createScript "screenshot-to-clipboard.sh")
+    (functions.createScript "select-area-screenshot-to-clipboard.sh")
   ];
 in {
   home.homeDirectory = "/home/${config.home.username}";
@@ -43,6 +51,8 @@ in {
     x11.enable = true;
   };
 
+  programs.ags.enable = true;
+
   gtk = {
     enable = true;
     cursorTheme = {
@@ -51,6 +61,12 @@ in {
       size = 24;
     };
   };
+
+  xdg.configFile =
+    {
+      ags.source = functions.genericDotfilesSymlink "ags" "nixos";
+    }
+    // import ../../common/modules/config-files.nix {dotfilesSymlink = functions.dotfilesSymlink;};
 
   xdg.userDirs = {
     enable = true;
@@ -64,7 +80,7 @@ in {
     templates = "${config.home.homeDirectory}/templates/";
     videos = "${config.home.homeDirectory}/videos/";
   };
-  
+
   # Fix for profile not loading by default for being in a symlink
   # making Firefox crash
   xdg.desktopEntries.firefox-developer-edition = {

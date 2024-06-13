@@ -18,6 +18,9 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     mac-app-util.url = "github:hraban/mac-app-util";
+
+    ags.url = "github:Aylur/ags";
+    ags.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {self, ...}: let

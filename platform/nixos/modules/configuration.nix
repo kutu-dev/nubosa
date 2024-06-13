@@ -50,6 +50,8 @@
     driSupport32Bit = true;
   };
 
+  hardware.xone.enable = true;
+
   # Also set the drive for Wayland
   services.xserver.videoDrivers = ["nvidia"];
 

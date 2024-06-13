@@ -7,18 +7,20 @@ return {
     build = ':TSUpdate',
     lazy = false,
 
-    opts = {
-      ensure_installed= "all",
+    setup = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed= "all",
 
-      sync_install = true,
-      auto_install = true,
+        sync_install = true,
+        auto_install = true,
 
-      highlight = {
-        enable = true
-      },
+        highlight = {
+          enable = true
+        },
 
-      indent = {
-        enable = true
-      },
-    }
+        indent = {
+          enable = true
+        },
+      })
+    end
 }

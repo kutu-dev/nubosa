@@ -28,6 +28,11 @@
     options = ["fmask=0022" "dmask=0022"];
   };
 
+  fileSystems."/home/kutu/mounts/bravo" = {
+    device = "/dev/disk/by-uuid/e4da0cc1-41c8-465a-9675-73c2f2c00911";
+    fsType = "ext4";
+  };
+
   swapDevices = [];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

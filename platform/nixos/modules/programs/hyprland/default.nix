@@ -27,7 +27,7 @@
       "Unknown-1, disable"
     ];
 
-    exec-once = import ./exec-once.nix;
+    exec-once = import ./exec-once.nix {inherit config;};
 
     general = {
       layout = "dwindle";
@@ -35,8 +35,8 @@
       gaps_in = 3;
       gaps_out = 6;
       border_size = 4;
-      "col.active_border" = "0xFF24283B";
-      "col.inactive_border" = "0xFF1616E";
+      "col.active_border" = "rgb(dde1e6)";
+      "col.inactive_border" = "rgb(161616)";
     };
 
     decoration = {

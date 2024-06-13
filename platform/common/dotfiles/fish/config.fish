@@ -14,12 +14,22 @@ if status is-interactive
 
     zoxide init fish | source
 
-    # Abbreviation
-    abbr --add kpi "sudo xbps-install -S"
-    abbr --add kpr "sudo xbps-remove -R"
-    abbr --add v "nvim"
-    abbr --add ls "eza --icons --git"
-    abbr --add tree "eza --icons --git --tree"
-    abbr --add sorry "sudo $history[1]"
-    abbr --add cd "z"
+    # General abbreviations
+    abbr -a v "nvim"
+    abbr -a ls "eza --icons --git"
+    abbr -a tree "eza --icons --git --tree"
+    abbr -a cd "z"
+
+    # Git abbreviations
+    abbr -a ga "git add ."
+    abbr -a --set-cursor="cursor" gc 'git commit -m "cursor"'
+    abbr -a --set-cursor="cursor" gac 'git commit -am "cursor"'
+    abbr -a gp "git push origin"
+
+    # Emulate the `!!` syntax from `bash`
+    function last_history_item
+      echo $history[1]
+    end
+
+    abbr -a --position anywhere --function last_history_item !!
 end

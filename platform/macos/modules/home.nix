@@ -3,15 +3,21 @@
   pkgs,
   ...
 }: let
-  createScript = scriptName: pkgs.writeShellScriptBin (builtins.elemAt (pkgs.lib.strings.splitString "." scriptName) 0) (builtins.readFile (../scripts + "/${scriptName}"));
+  functions = import ../../common/modules/functions.nix {
+    inherit config;
+    inherit pkgs;
+    scriptsPath = ../scripts;
+  };
 
   extraPackages = [
-    (createScript "random-change-wallpaper.sh")
+    (functions.createScript "random-change-wallpaper.sh")
   ];
 in {
   home.homeDirectory = "/Users/${config.home.username}";
 
   home.packages = pkgs.callPackage ../../common/modules/packages.nix {} ++ extraPackages;
+
+  xdg.configFile = import ../../common/modules/config-files.nix {dotfilesSymlink = functions.dotfilesSymlink;};
 
   home.file."Library/LaunchAgents/dev.dobon.nubosa.random-change-wallpaper.plist".source = ../dotfiles/launch-agents/dev.dobon.nubosa.random-change-wallpaper.plist;
 

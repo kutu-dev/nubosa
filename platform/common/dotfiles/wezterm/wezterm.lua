@@ -5,12 +5,13 @@ local user = os.getenv("USER")
 
 config.default_prog = { "/etc/profiles/per-user/" .. user .. "/bin/fish" }
 
+config.front_end = "WebGpu"
 config.enable_wayland = false
 
 config.window_close_confirmation = "NeverPrompt"
 
 config.color_scheme_dirs = { wezterm.config_dir .. 'colors' }
-config.color_scheme = 'tokyonight'
+config.color_scheme = 'Oxocarbon Dark'
 
 config.font = wezterm.font_with_fallback {
   'JetBrains Mono',
