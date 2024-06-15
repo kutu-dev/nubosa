@@ -7,6 +7,9 @@
 - Why treesitter just died.
 - Migrate to nixvim (?).
 
+## macOS
+- Fix broken paths.
+
 ## NixOS
 - Notification daemon (dunst or ags).
 - Power menu.
