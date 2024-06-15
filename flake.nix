@@ -76,7 +76,7 @@
       ];
     };
 
-    homeConfigurations.darwin = inputs.home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.macos = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = getPkgs {
         system = "aarch64-darwin";
         extraOverlays = [inputs.nixpkgs-firefox-darwin.overlay];
@@ -84,6 +84,7 @@
 
       modules = [
         ./modules/macos/home.nix
+        inputs.stylix.homeManagerModules.stylix
         inputs.mac-app-util.homeManagerModules.default
         ./modules/common/home.nix
       ];

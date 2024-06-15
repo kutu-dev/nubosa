@@ -53,6 +53,15 @@ in {
 
   programs.ags.enable = true;
 
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
+  };
+
   xdg.configFile =
     {
       ags.source = functions.dotfilesSymlink "ags";

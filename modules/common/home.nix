@@ -34,15 +34,6 @@
     targets.firefox.profileNames = ["kutu"];
   };
 
-  gtk = {
-    enable = true;
-    cursorTheme = {
-      name = "Bibata-Modern-Classic";
-      package = pkgs.bibata-cursors;
-      size = 24;
-    };
-  };
-
   nix = {
     package = pkgs.nix;
 
