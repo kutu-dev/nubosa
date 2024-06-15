@@ -24,7 +24,6 @@
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
         ublock-origin
-        tokyo-night-v2
       ];
 
       bookmarks = [
@@ -40,12 +39,38 @@
       userContent = ''
         @-moz-document url(about:home), url(about:newtab) {
           body {
-            background-color: oklch(22.57% 0.019 280.25) !important;
+            background-color: oklch(20.02% 0 0) !important;
           }
 
           .search-inner-wrapper {
-            --newtab-background-color-secondary: oklch(24.86% 0.025 281.01);
+            --newtab-background-color-secondary: oklch(34.46% 0 0) !important;
           }
+        }
+      '';
+
+      userChrome = ''
+        #TabsToolbar {
+          --lwt-tab-line-color: #00000000 !important;
+        }
+
+        #nav-bar {
+          border-top: none !important;
+        }
+
+        #navigator-toolbox {
+          border-bottom: none !important;
+        }
+
+        .titlebar-buttonbox-container {
+          display: none !important;
+        }
+
+        #tabbrowser-tabs {
+          border-inline-start: none !important;
+        }
+
+        .titlebar-spacer {
+          width: 0 !important;
         }
       '';
     };

@@ -21,6 +21,9 @@
 
     ags.url = "github:Aylur/ags";
     ags.inputs.nixpkgs.follows = "nixpkgs";
+
+    stylix.url = "github:danth/stylix";
+    stylix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs @ {self, ...}: let
@@ -51,16 +54,23 @@
       ] (
         system:
           function
-          (getPkgs {inherit system;})
+          {
+            pkgs = getPkgs {inherit system;};
+            inherit system;
+          }
       );
   in {
-    formatter = forAllSystems (pkgs: pkgs.alejandra);
+    formatter = forAllSystems ({pkgs, ...}: pkgs.alejandra);
 
-    packages = forAllSystems (pkgs: {
+    packages = forAllSystems ({
+      pkgs,
+      system,
+    }: {
       defaultbrowser = pkgs.defaultbrowser;
       shellcheck = pkgs.shellcheck;
       shfmt = pkgs.shfmt;
       jq = pkgs.jq;
+      home-manager = inputs.home-manager.defaultPackage."${system}";
 
       # This is not an issue because `nix-darwin` is only useful
       # in this system.
@@ -78,6 +88,32 @@
         system = "aarch64-darwin";
         extraOverlays = [inputs.nixpkgs-firefox-darwin.overlay];
       };
+    };
+
+    # Having Home Manager declarations alone allow them to be executed from the
+    # command line, obligatory for the dynamic theme changing
+    homeConfigurations.nixos = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = getPkgs {system = "x86_64-linux";};
+
+      modules = [
+        ./platform/nixos/modules/home.nix
+        inputs.stylix.homeManagerModules.stylix
+        inputs.ags.homeManagerModules.default
+        ./platform/common/modules/home.nix
+      ];
+    };
+
+    homeConfigurations.darwin = inputs.home-manager.lib.homeManagerConfiguration {
+      pkgs = getPkgs {
+        system = "aarch64-darwin";
+        extraOverlays = [inputs.nixpkgs-firefox-darwin.overlay];
+      };
+
+      modules = [
+        ./platform/macos/modules/home.nix
+        inputs.mac-app-util.homeManagerModules.default
+        ./platform/common/modules/home.nix
+      ];
     };
   };
 }

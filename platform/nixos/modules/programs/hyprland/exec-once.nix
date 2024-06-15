@@ -1,4 +1,6 @@
 {config}: [
+  "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+
   # Start the clipboard daemon
   "wl-paste --type text --watch cliphist store"
 

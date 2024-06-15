@@ -16,8 +16,15 @@ with pkgs;
     glow
 
     # For nvim LSPs
-    python312
     gcc
+    python312
+
+    /*
+    (pkgs.python3Packages.buildPythonPackage {
+      name = "nubosa";
+      src = ../../../cli;
+    })
+    */
   ]
   ++ [
     pkgs.master.vesktop

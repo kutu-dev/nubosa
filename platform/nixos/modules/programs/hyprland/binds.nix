@@ -17,7 +17,6 @@
     "$mod, 4, workspace, 4"
     "$mod, 5, workspace, 5"
     "$mod, 6, workspace, 6"
-    "$mod, 7, workspace, 7"
 
     # Move window to workspace
     "$mod SHIFT, 1, movetoworkspace, 1"
@@ -26,7 +25,6 @@
     "$mod SHIFT, 4, movetoworkspace, 4"
     "$mod SHIFT, 5, movetoworkspace, 5"
     "$mod SHIFT, 6, movetoworkspace, 6"
-    "$mod SHIFT, 7, movetoworkspace, 7"
 
     # Floating windows
     "$mod, X, togglefloating"

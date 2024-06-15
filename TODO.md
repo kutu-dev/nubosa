@@ -1,7 +1,6 @@
 # TODO
 
 ## Common
-- Firefox dev tools right.
 
 ### Nvim
 - NIX and JUSTFILE support.
@@ -10,4 +9,7 @@
 
 ## NixOS
 - Notification daemon (dunst or ags).
-- Remove tofi cache.
+- Power menu.
+- Wallpaper manager.
+- Theme selector.
+- Clipboard history.

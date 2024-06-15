@@ -21,12 +21,31 @@
   programs.btop = {
     enable = true;
     settings = {
-      color_theme = "tokyo-night";
+      color_theme = "theme";
       vim_keys = true;
     };
   };
 
+  stylix = {
+    base16Scheme = ../../common/dotfiles/base16/theme.yaml;
+    autoEnable = false;
+    targets.gtk.enable = true;
+    targets.firefox.enable = true;
+    targets.firefox.profileNames = ["kutu"];
+  };
+
+  gtk = {
+    enable = true;
+    cursorTheme = {
+      name = "Bibata-Modern-Classic";
+      package = pkgs.bibata-cursors;
+      size = 24;
+    };
+  };
+
   nix = {
+    package = pkgs.nix;
+
     gc = {
       automatic = true;
       options = "--delete-older-than 7d";

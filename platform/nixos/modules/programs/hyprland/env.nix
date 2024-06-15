@@ -5,8 +5,6 @@
 
   # GTK settings
   "GDK_BACKEND, wayland,x11,*"
-  # TODO: After installing the GTK theme
-  # "GTK_THEME, tokyo-night"
 
   # QT settings
   "QT_QPA_PLATFORM, wayland;xcb"

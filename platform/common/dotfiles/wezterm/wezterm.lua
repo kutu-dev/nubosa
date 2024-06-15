@@ -1,11 +1,11 @@
 local wezterm = require('wezterm')
 local config = wezterm.config_builder()
 
-local user = os.getenv("USER")
+local user_home = os.getenv("HOME")
 
-config.default_prog = { "/etc/profiles/per-user/" .. user .. "/bin/fish" }
+config.default_prog = { user_home .. "/.nix-profile/bin/fish" }
 
-config.front_end = "WebGpu"
+-- Without disabling Wayland the terminal will just crash at startup
 config.enable_wayland = false
 
 config.window_close_confirmation = "NeverPrompt"

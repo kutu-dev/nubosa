@@ -26,15 +26,22 @@ todo:
   glow TODO.md
   rg TODO:
 
-# Switch the nix-darwin config
+# Switch the nix-darwin and Home Manager configurations
 switch-macos:
   nix run .#nix-darwin -- switch --flake .#nubosa
+  nix run .#home-manager -- switch --flake .#macos
+
+  # Imperative configurations
   nix run .#defaultbrowser -- firefoxdeveloperedition
 
-# Switch the NixOS config
+# Switch the NixOS and Home Manager configurations
 switch-nixos:
   sudo nixos-rebuild switch --flake .#nubosa
+  nix run .#home-manager -- switch --flake .#nixos
+
+  # Imperative configurations
   STEAM_EXTRA_COMPAT_TOOLS_PATHS="$HOME/.steam/root/compatibilitytools.d/" protonup -y
+  rm -f "${XDG_CACHE_HOME:-$HOME/.cache}/tofi-drun"
 
 # Switch the config based on the platform where the recipe is run
 platform := if `uname -s` == "Linux" { "switch-nixos" } else { "switch-macos" }

@@ -2,12 +2,9 @@
   config,
   pkgs,
   scriptsPath,
-}: 
-let
+}: let
   genericDotfilesSymlink = path: platformName: config.lib.file.mkOutOfStoreSymlink ("${config.home.homeDirectory}/documents/dev/nubosa/platform/${platformName}/dotfiles/" + path);
-
-in
-{
+in {
   inherit genericDotfilesSymlink;
 
   dotfilesSymlink = path: genericDotfilesSymlink path "common";

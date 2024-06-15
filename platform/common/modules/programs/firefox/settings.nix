@@ -38,6 +38,7 @@
   "browser.vpn_promo.enabled" = false;
 
   "browser.newtabpage.activity-stream.enable" = false;
+  "browser.newtabpage.activity-stream.feeds.topsites" = false;
   "browser.newtabpage.activity-stream.telemetry" = false;
 
   "browser.uiCustomization.state" = "{\"placements\":{\"widget-overflow-fixed-list\":[],\"unified-extensions-area\":[\"_testpilot-containers-browser-action\"],\"nav-bar\":[\"back-button\",\"forward-button\",\"stop-reload-button\",\"customizableui-special-spring1\",\"home-button\",\"urlbar-container\",\"customizableui-special-spring2\",\"save-to-pocket-button\",\"downloads-button\",\"developer-button\",\"fxa-toolbar-menu-button\",\"unified-extensions-button\",\"ublock0_raymondhill_net-browser-action\"],\"TabsToolbar\":[\"firefox-view-button\",\"tabbrowser-tabs\",\"new-tab-button\",\"alltabs-button\"],\"PersonalToolbar\":[\"personal-bookmarks\"]},\"seen\":[\"save-to-pocket-button\",\"developer-button\",\"profiler-button\",\"_testpilot-containers-browser-action\",\"ublock0_raymondhill_net-browser-action\"],\"dirtyAreaCache\":[\"nav-bar\",\"PersonalToolbar\",\"unified-extensions-area\",\"TabsToolbar\"],\"currentVersion\":20,\"newElementCount\":4}";
@@ -70,4 +71,8 @@
 
   "toolkit.telemetry.reportingpolicy.firstRun" = false;
   "toolkit.telemetry.shutdownPingSender.enabledFirstsession" = false;
+
+  "devtools.toolbox.host" = "right";
+  "devtools.chrome.enabled" = true;
+  "devtools.debugger.remote-enabled" = true;
 }

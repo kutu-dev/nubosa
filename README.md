@@ -1,6 +1,13 @@
 # WIP
 
-- Set the firefox theme.
+Theamed things:
+- GTK3/4/Libadwaita
+- Vesktop
+- Nvim
+- Wezterm
+- Firefox
+
+- Set the firefox theme: https://addons.mozilla.org/en-US/firefox/addon/wannabeoxocarbon/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
 - Manually set up Syncthing.
 
 - Steam imperative:
