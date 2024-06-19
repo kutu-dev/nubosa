@@ -1,32 +1,7 @@
-{pkgs, ...}:
-let
-  python = pkgs.python312.override {
-    self = python;
-    packageOverrides = self: super: {
-      nubosa = self.buildPythonPackage {
-        name = "nubosa";
-        version = "1.0.0";
-
-        src = ../../cli;
-
-        pyproject = true;
-        doCheck = false;
-    
-        build-system = [
-          pkgs.python312Packages.setuptools
-        ];
-
-        propagatedBuildInputs = [
-          pkgs.python312Packages.platformdirs
-        ];
-      };
-    };
-  };
-
-in
-with pkgs;
+{pkgs, ...}: with pkgs;
   [
     neovim
+    vesktop
     just
     fish
     fortune
@@ -44,8 +19,5 @@ with pkgs;
     gcc
   ]
   ++ [
-    pkgs.master.vesktop
-    (python.withPackages(ps: [
-      ps.nubosa
-    ]))
+    pkgs.cumulus
   ]

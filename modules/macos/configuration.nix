@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   services.nix-daemon.enable = true;
   users.users.kutu.home = "/Users/kutu";
 

@@ -20,6 +20,7 @@ if status is-interactive
     abbr -a ls "eza --icons --git"
     abbr -a tree "eza --icons --git --tree"
     abbr -a cd "z"
+    abbr -a nd 'nix develop -c "fish"'
 
     # Git abbreviations
     abbr -a ga "git add ."

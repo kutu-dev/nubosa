@@ -27,7 +27,7 @@
   };
 
   stylix = {
-    base16Scheme = ../../dotfiles/base16/theme.yaml;
+    base16Scheme = ../../dotfiles/stylix/theme.yaml;
     autoEnable = false;
     targets.gtk.enable = true;
     targets.firefox.enable = true;

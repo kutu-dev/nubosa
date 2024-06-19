@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: {
-  nubosa = inputs.nixpkgs.lib.nixosSystem {
+  valhalla = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
     inherit pkgs;
 

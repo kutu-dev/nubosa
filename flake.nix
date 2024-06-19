@@ -13,10 +13,7 @@
           [
             inputs.nur.overlay
             (final: prev: {
-              master = import inputs.nixpkgs-master {
-                inherit system;
-                config.allowUnfree = true;
-              };
+              cumulus = inputs.cumulus.packages."${system}".default;
             })
           ]
           ++ extraOverlays;
@@ -48,6 +45,7 @@
 
       home-manager = inputs.home-manager.packages."${system}".default;
       nix-darwin = inputs.nix-darwin.packages."${system}".default;
+      mac-app-util = inputs.mac-app-util.packages."${system}".default;
     });
 
     nixosConfigurations = import ./modules/nixos/nixos.nix {
@@ -65,7 +63,7 @@
 
     # Having Home Manager declarations alone allow them to be executed from the
     # command line, obligatory for the dynamic theme changing
-    homeConfigurations.nixos = inputs.home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.valhalla = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = getPkgs {system = "x86_64-linux";};
 
       modules = [
@@ -76,7 +74,7 @@
       ];
     };
 
-    homeConfigurations.macos = inputs.home-manager.lib.homeManagerConfiguration {
+    homeConfigurations.nirvana = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = getPkgs {
         system = "aarch64-darwin";
         extraOverlays = [inputs.nixpkgs-firefox-darwin.overlay];
@@ -114,5 +112,7 @@
 
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    cumulus.url = "path:./cumulus";
   };
 }

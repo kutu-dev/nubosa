@@ -11,7 +11,7 @@ config.enable_wayland = false
 config.window_close_confirmation = "NeverPrompt"
 
 config.color_scheme_dirs = { wezterm.config_dir .. 'colors' }
-config.color_scheme = 'Oxocarbon Dark'
+config.color_scheme = 'theme'
 
 config.font = wezterm.font_with_fallback {
   'JetBrains Mono',
