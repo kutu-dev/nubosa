@@ -1,6 +1,7 @@
 # TODO
 
-## Common
+## CUMULUS:
+- Cambiar el nombre?
 
 ### Nvim
 - NIX and JUSTFILE support.
@@ -10,6 +11,4 @@
 ## NixOS
 - Notification daemon (dunst or ags).
 - Power menu.
-- Wallpaper manager.
-- Theme selector.
 - Clipboard history.

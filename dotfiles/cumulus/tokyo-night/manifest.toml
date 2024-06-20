@@ -1,0 +1,12 @@
+name = "Tokyo Night"
+nvim_theme = "folke/tokyonight.nvim"
+nvim_colorscheme = "tokyonight"
+nvim_options = """
+opts = {
+    style = "night",
+
+    on_colors = function(colors)
+      colors.bg = "#16161E"
+    end
+}
+"""
