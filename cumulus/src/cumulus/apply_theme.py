@@ -2,6 +2,9 @@ from .state import State
 from .logging import error
 
 from pathlib import Path
+import os
+from multiprocessing import Process
+import time
 import sys
 from jinja2 import Environment, PackageLoader
 import yaml
@@ -46,24 +49,28 @@ def apply_nvim(theme_path: Path, dotfiles_path: Path) -> None:
         theme_manifest = tomllib.load(file)
         print(f"Loading theme: {theme_manifest["name"]}")
 
-        apply_template("nvim-set-package",  dotfiles_path / "nvim/lua/plugins/theme.lua", nvim_theme=theme_manifest["nvim_theme"])
-        apply_template("nvim-set-colorscheme",  dotfiles_path / "nvim/lua/core/style.lua", nvim_colorscheme=theme_manifest["nvim_colorscheme"])
+        apply_template("nvim-set-package",  dotfiles_path / "nvim/lua/plugins/theme.lua", **theme_manifest)
+        apply_template("nvim-set-colorscheme",  dotfiles_path / "nvim/lua/core/style.lua", **theme_manifest)
 
-def apply_base_16(theme_path: Path, dotfiles_path: Path) -> None:
+def apply_base_16(theme_path: Path, nubosa_path: Path, dotfiles_path: Path) -> None:
     with open(theme_path / "base-16.yaml", "r") as file:
         base_16_data = yaml.safe_load(file)
 
-        apply_template(
-            "wezterm",
-            dotfiles_path / "wezterm/colors/theme.toml",
-            **base_16_data,
-        )
+        templates = [
+            ("wezterm", dotfiles_path / "wezterm/colors/theme.toml"),
+            ("btop", dotfiles_path / "btop/themes/theme.theme"),
+            ("firefox-user-content", nubosa_path / "modules/common/programs/firefox/user-content.nix"),
+            ("firefox-user-chrome", nubosa_path / "modules/common/programs/firefox/user-chrome.nix"),
+            ("ags", dotfiles_path / "ags/style.css"),
+            ("vesktop", dotfiles_path / "vesktop/themes/theme.css"),
+        ]
 
-        apply_template(
-            "btop",
-            dotfiles_path / "btop/themes/theme.theme",
-            **base_16_data,
-        )
+        for template_name, template_path in templates:
+            apply_template(
+                template_name,
+                template_path,
+                **base_16_data,
+            )
 
 def apply_stylix(theme_path: Path, nubosa_path: Path, dotfiles_path: Path) -> None:
     print(f"  - Rebuilding {Fore.BLUE}Stylix{Style.RESET_ALL} based files...")
@@ -85,6 +92,38 @@ def save_applied_theme(theme_name, data_path: Path) -> None:
     with open(applied_theme_info_path, "w") as file:
         file.write(theme_name + "\n")
 
+def reopen_wezterm() -> None:
+    # Do a double fork
+    if os.fork() != 0:
+        return
+
+    if os.fork() != 0:
+        return
+
+    os.setsid()
+
+    sys.stdin.flush()
+    sys.stdout.flush()
+    sys.stderr.flush()
+
+    null = os.open(os.devnull, os.O_RDWR)
+    os.dup2(null, sys.stdin.fileno())
+    os.dup2(null, sys.stdout.fileno())
+    os.dup2(null, sys.stderr.fileno())
+    os.close(null)
+
+    time.sleep(0.1)
+    subprocess.run(["wezterm"])
+
+def restart_apps() -> None:
+    print("  - Killing affected apps...")
+
+    reopen_wezterm()
+
+    for process in ["firefox", "wezterm"]:
+        print(f"     - Killing \"{Fore.MAGENTA}{process}{Style.RESET_ALL}\"")
+        subprocess.run(["pkill", process])
+
 def apply_theme(theme_name: str, state: State) -> None:
     theme_path = state.config_path / theme_name
 
@@ -96,9 +135,9 @@ def apply_theme(theme_name: str, state: State) -> None:
     dotfiles_path = nubosa_path / "dotfiles"
 
     apply_nvim(theme_path, dotfiles_path)
-    apply_base_16(theme_path, dotfiles_path)
+    apply_base_16(theme_path, nubosa_path, dotfiles_path)
     apply_stylix(theme_path, nubosa_path, dotfiles_path)
 
     save_applied_theme(theme_name, state.data_path)
 
-    print(f"{Fore.GREEN}Done!{Style.RESET_ALL}")
+    restart_apps()

@@ -12,7 +12,7 @@ cursor_border = '#c0caf5'
 cursor_fg = '#16161E'
 
 ansi = [
-    '#414868',
+    '#1a1b26',
     '#f7768e',
     '#73daca',
     '#73daca',
@@ -33,7 +33,7 @@ brights = [
 ]
 
 [colors.tab_bar]
-background = "#414868"
+background = "#1a1b26"
 
 [colors.tab_bar.active_tab]
 bg_color = '#161616'
@@ -44,7 +44,7 @@ strikethrough = false
 underline = 'None'
 
 [colors.tab_bar.inactive_tab]
-bg_color = '#414868'
+bg_color = '#1a1b26'
 fg_color = '#c0caf5'
 intensity = 'Normal'
 italic = false
@@ -52,7 +52,7 @@ strikethrough = false
 underline = 'None'
 
 [colors.tab_bar.new_tab]
-bg_color = '#414868'
+bg_color = '#1a1b26'
 fg_color = '#c0caf5'
 intensity = 'Normal'
 italic = false

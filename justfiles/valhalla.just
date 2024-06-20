@@ -4,7 +4,7 @@ switch-system-valhalla:
 
 # Regenerate the home configurations for valhalla
 switch-home-valhalla:
-  nix run .#home-manager -- switch --flake .#nixos
+  nix run .#home-manager -- switch --flake .#valhalla
 
   # Install the latest available GE-Proton version
   STEAM_EXTRA_COMPAT_TOOLS_PATHS="$HOME/.steam/root/compatibilitytools.d/" protonup -y

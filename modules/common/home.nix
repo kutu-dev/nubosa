@@ -31,7 +31,7 @@
     autoEnable = false;
     targets.gtk.enable = true;
     targets.firefox.enable = true;
-    targets.firefox.profileNames = ["kutu"];
+    targets.firefox.profileNames = ["Kutu"];
   };
 
   nix = {

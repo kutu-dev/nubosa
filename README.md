@@ -7,7 +7,6 @@ Theamed things:
 - Wezterm
 - Firefox
 
-- Set the firefox theme: https://addons.mozilla.org/en-US/firefox/addon/wannabeoxocarbon/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
 - Manually set up Syncthing.
 
 - Steam imperative:

@@ -13,7 +13,7 @@ setup:
 check:
   nix fmt
   nix run .#shfmt -- .
-  ./check-justfile.sh
+  ./scripts/misc/check-justfile.sh
 
 # Update and relock the inputs of the flake
 update:

@@ -47,7 +47,15 @@ const Bar = (monitor = 0) => Widget.Window({
   }),
 });
 
+const css_file_path = `${App.configDir}/style.css`;
 App.config({
   windows: [Bar()],
-  style: "./style.css",
+  style: css_file_path,
 });
+
+Utils.monitorFile(
+    css_file_path,
+    function() {
+        App.applyCss(css_file_path);
+    },
+)

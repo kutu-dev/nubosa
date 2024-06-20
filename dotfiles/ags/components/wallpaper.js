@@ -4,9 +4,9 @@ import { ButtonLabel } from "./button-label.js";
 export const Wallpaper = () => ItemNarrow([ButtonLabel(
   "",
   {
-    onClicked: (self, event) => {
-      // Get the coordinates of the button
-      const [_, x, y] = self.translate_coordinates(self.get_toplevel(), 0, 0);
+    onPrimaryClick: (self, event) => {
+      const coords = event.get_root_coords()
+      Utils.exec(`sh -c "swww img $(cumulus wallpaper get) -t grow --transition-pos ${coords[1]},${1080-coords[2]}"`)
     },
   },
 )]);
