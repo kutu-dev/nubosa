@@ -8,3 +8,4 @@ switch-home-nirvana: lock-cumulus
 
   # Imperative configurations
   nix run .#defaultbrowser -- firefoxdeveloperedition
+  nix run .#mac-app-util -- mktrampoline "$HOME/Applications/Home Manager Apps/Vesktop.App/" "$HOME/Applications/Home Manager Trampolines/Vesktop.app"
