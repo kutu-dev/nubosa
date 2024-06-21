@@ -11,8 +11,6 @@
   "XCURSOR_SIZE, 24"
   "T_QPA_PLATFORM, wayland"
   "XCURSOR_THEME, Bibata-Modern-Classic"
-  # TODO: After installing the QT theme
-  # "QT_STYLE_OVERRIDE, kvantum"
 
   # SDL2 settings
   "SDL_VIDEODRIVER, wayland"

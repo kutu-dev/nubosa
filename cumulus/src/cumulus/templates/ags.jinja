@@ -13,7 +13,7 @@ label {
   color: #{{base03}};
 }
 
-.bar {
+.window {
     background-color: transparent;
 }
 
@@ -42,10 +42,74 @@ label {
   color: #{{base04}};
 }
 
+.power-button {
+  min-width: 120px;
+  min-height: 120px;
+}
+
+.power-button--poweroff > label {
+  color: #{{base0A}};
+}
+
+.power-button--poweroff:hover {
+  background-color: #{{base0A}};
+}
+
+.power-button--reboot > label {
+  color: #{{base0D}};
+}
+
+.power-button--reboot:hover {
+  background-color: #{{base0D}};
+}
+
+.power-button--suspend > label {
+  color: #{{base0F}};
+}
+
+.power-button--suspend:hover {
+  background-color: #{{base0F}};
+}
+
+.power-button--poweroff:hover > label,
+.power-button--reboot:hover > label,
+.power-button--suspend:hover > label
+{
+  color: #{{base06}};
+}
+
 .label-active {
   color: #{{base06}};
 }
 
 .label-danger {
   color: #{{base0A}};
+}
+
+.label-big {
+  font-size: 80px;
+}
+
+.notification {
+  min-width: 340px;
+  border-radius: 15px;
+  background-color: #{{base00}};
+  padding: 10px;
+  margin-bottom: 8px;
+}
+
+.notification-icon {
+  border-radius: 5px;
+  min-width: 60px;
+  min-height: 60px;
+  margin-right: 1em;
+}
+
+.notification-icon image {
+  font-size: 58px;
+  margin: 5px;
+}
+
+.notification-action-buttons {
+  margin-top: 5px;
 }

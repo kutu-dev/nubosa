@@ -5,55 +5,55 @@
 name = 'theme'
 
 [colors]
-background = '#16161E'
-foreground = '#c0caf5'
-cursor_bg = '#c0caf5'
-cursor_border = '#c0caf5'
-cursor_fg = '#16161E'
+background = '#161616'
+foreground = '#ffffff'
+cursor_bg = '#ffffff'
+cursor_border = '#ffffff'
+cursor_fg = '#161616'
 
 ansi = [
-    '#1a1b26',
-    '#f7768e',
-    '#73daca',
-    '#73daca',
-    '#7aa2f7',
-    '#bb9af7',
-    '#7dcfff',
-    '#c0caf5',
+    '#262626',
+    '#ee5396',
+    '#42be65',
+    '#42be65',
+    '#33b1ff',
+    '#ff7eb6',
+    '#3ddbd9',
+    '#dde1e6',
 ]
 brights = [
     '#393939',
-    '#f7768e',
-    '#73daca',
-    '#73daca',
-    '#7aa2f7',
-    '#bb9af7',
-    '#7dcfff',
-    '#c0caf5',
+    '#ee5396',
+    '#42be65',
+    '#42be65',
+    '#33b1ff',
+    '#ff7eb6',
+    '#3ddbd9',
+    '#ffffff',
 ]
 
 [colors.tab_bar]
-background = "#1a1b26"
+background = "#262626"
 
 [colors.tab_bar.active_tab]
 bg_color = '#161616'
-fg_color = '#c0caf5'
+fg_color = '#ffffff'
 intensity = 'Normal'
 italic = false
 strikethrough = false
 underline = 'None'
 
 [colors.tab_bar.inactive_tab]
-bg_color = '#1a1b26'
-fg_color = '#c0caf5'
+bg_color = '#262626'
+fg_color = '#ffffff'
 intensity = 'Normal'
 italic = false
 strikethrough = false
 underline = 'None'
 
 [colors.tab_bar.new_tab]
-bg_color = '#1a1b26'
-fg_color = '#c0caf5'
+bg_color = '#262626'
+fg_color = '#ffffff'
 intensity = 'Normal'
 italic = false
 strikethrough = false

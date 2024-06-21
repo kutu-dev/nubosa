@@ -2,15 +2,8 @@
 -- Do NOT edit it directly, all changes may be removed
 
 return {
-  "folke/tokyonight.nvim",
+  "nyoom-engineering/oxocarbon.nvim",
   lazy = false,
   priority = 1000,
-  opts = {
-    style = "night",
-
-    on_colors = function(colors)
-      colors.bg = "#16161E"
-    end
-}
-
+  
 }

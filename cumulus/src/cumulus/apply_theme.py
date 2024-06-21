@@ -63,6 +63,7 @@ def apply_base_16(theme_path: Path, nubosa_path: Path, dotfiles_path: Path) -> N
             ("firefox-user-chrome", nubosa_path / "modules/common/programs/firefox/user-chrome.nix"),
             ("ags", dotfiles_path / "ags/style.css"),
             ("vesktop", dotfiles_path / "vesktop/themes/theme.css"),
+            ("tofi", nubosa_path / "modules/nixos/programs/tofi.nix"),
         ]
 
         for template_name, template_path in templates:

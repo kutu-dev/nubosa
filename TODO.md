@@ -1,14 +1,12 @@
 # TODO
 
-## CUMULUS:
-- Cambiar el nombre?
+## Common
+- Add README.md with a tour
 
 ### Nvim
 - NIX and JUSTFILE support.
 - Why treesitter just died.
 - Migrate to nixvim (?).
 
-## NixOS
-- Notification daemon (dunst or ags).
-- Power menu.
-- Clipboard history.
+## macOS
+- Add Vesktop mac-app-util to `just switch-home-nirvana`

@@ -40,6 +40,7 @@ in {
   wayland.windowManager.hyprland = import ./programs/hyprland/default.nix {inherit config;};
 
   services.udiskie.enable = true;
+  services.cliphist.enable = true;
 
   programs.tofi = import ./programs/tofi.nix;
 

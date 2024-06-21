@@ -3,12 +3,12 @@
 
 ''
 #navigator-toolbox {
-  background-color: #16161E !important;
+  background-color: #161616 !important;
 }
 
 :root {
-  --toolbar-bgcolor: #16161E !important;
-  --tab-selected-bgcolor: #565f89 !important;
+  --toolbar-bgcolor: #161616 !important;
+  --tab-selected-bgcolor: #525252 !important;
 }
 
 #TabsToolbar {

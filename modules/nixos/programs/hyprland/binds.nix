@@ -40,8 +40,10 @@
     "$mod CONTROL SHIFT, S, exec, $scripts_path/select-area-screenshot"
 
     # Change wallpaper
-    # TODO: Change when wallpaper manager is finished
-    "$mod, W, exec, swww img $(find ~/pictures/wallpapers/* -type f | sort -R | head -1) -t wipe"
+    "$mod, W, exec, swww img $(cumulus wallpaper get) -t wipe"
+
+    # Clipboard history manager
+    "$mod_key, V, exec, cliphist list | sed 's/^[0-9]*\\t//g' | tofi --placeholder-text='Clipboard...' | cliphist decode | wl-copy"
 
     # App shortcuts
     "$mod, T, exec, wezterm"

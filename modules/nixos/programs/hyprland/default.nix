@@ -5,7 +5,7 @@
 
   settings = {
     "$mod" = "SUPER";
-    "$scripts_path" = "/etc/profiles/per-user/${config.home.username}/bin";
+    "$scripts_path" = "${config.home.homeDirectory}/.nix-profile/bin";
 
     input =
       {
