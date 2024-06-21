@@ -23,6 +23,7 @@ if status is-interactive
     abbr -a nd 'nix develop -c "fish"'
 
     # Git abbreviations
+    abbr -a gs "git status"
     abbr -a ga "git add ."
     abbr -a --set-cursor="cursor" gc 'git commit -m "cursor"'
     abbr -a --set-cursor="cursor" gac 'git commit -am "cursor"'

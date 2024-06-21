@@ -1,7 +1,7 @@
 # TODO
 
 ## Common
-- Add README.md with a tour
+- Add README.md with a tour.
 
 ### Nvim
 - NIX and JUSTFILE support.

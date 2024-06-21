@@ -10,7 +10,7 @@ setup:
   cp platform/common/dotfiles/nix/nix.conf {{nix_config_path}}
 
 # Format and lint all NIX and POSIX shell files
-check:
+check: lock-cumulus
   nix fmt
   nix run .#shfmt -- .
   ./scripts/misc/check-justfile.sh

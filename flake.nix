@@ -48,6 +48,16 @@
       mac-app-util = inputs.mac-app-util.packages."${system}".default;
     });
 
+    apps = forAllSystems({
+      pkgs,
+      system,
+    }: {
+      sponge = {
+        type = "app";
+        program = "${pkgs.moreutils}/bin/sponge";
+      };
+    });
+
     nixosConfigurations = import ./modules/nixos/nixos.nix {
       inherit inputs;
       pkgs = getPkgs {system = "x86_64-linux";};
@@ -91,7 +101,6 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
     nixpkgs-firefox-darwin.inputs.nixpkgs.follows = "nixpkgs";
@@ -106,6 +115,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     mac-app-util.url = "github:hraban/mac-app-util";
+    mac-app-util.inputs.nixpkgs.follows = "nixpkgs";
 
     ags.url = "github:Aylur/ags";
     ags.inputs.nixpkgs.follows = "nixpkgs";
@@ -114,5 +124,6 @@
     stylix.inputs.nixpkgs.follows = "nixpkgs";
 
     cumulus.url = "path:./cumulus";
+    cumulus.inputs.nixpkgs.follows = "nixpkgs";
   };
 }
