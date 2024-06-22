@@ -6,7 +6,6 @@
     profiles.kutu = {
       id = 0;
       name = "Kutu";
-      isDefault = true;
 
       search = {
         default = "DuckDuckGo";
@@ -39,6 +38,6 @@
       userContent = import ./user-content.nix;
 
       userChrome = import ./user-chrome.nix;
-      };
+    };
   };
 }
