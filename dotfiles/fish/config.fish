@@ -40,5 +40,5 @@ if status is-interactive
     # as fish does not source the Home Manager file
     # if config is set as a symlink
     
-    set SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent
+    set -x SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent
 end
