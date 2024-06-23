@@ -35,4 +35,10 @@ if status is-interactive
     end
 
     abbr -a --position anywhere --function last_history_item !!
+
+    # Add ssh agent environment variable manually
+    # as fish does not source the Home Manager file
+    # if config is set as a symlink
+    
+    set SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent
 end

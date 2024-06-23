@@ -8,7 +8,6 @@
     inherit pkgs;
     scriptsPath = ../../scripts/macos;
   };
-
 in {
   home.homeDirectory = "/Users/${config.home.username}";
 

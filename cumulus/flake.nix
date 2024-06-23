@@ -30,7 +30,10 @@
         name = "cumulus";
         version = "1.0.0";
 
-        src = builtins.path { path = ./.; name = "cumulus"; };
+        src = builtins.path {
+          path = ./.;
+          name = "cumulus";
+        };
 
         pyproject = true;
         doCheck = false;
