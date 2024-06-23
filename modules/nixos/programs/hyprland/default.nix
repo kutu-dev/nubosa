@@ -31,7 +31,6 @@
 
     general = {
       layout = "dwindle";
-      cursor_inactive_timeout = 5;
       gaps_in = 3;
       gaps_out = 6;
       border_size = 4;
@@ -47,6 +46,10 @@
     dwindle = {
       preserve_split = true;
       pseudotile = true;
+    };
+
+    cursor = {
+      inactive_timeout = 5;
     };
 
     windowrulev2 = import ./window-rules.nix;
