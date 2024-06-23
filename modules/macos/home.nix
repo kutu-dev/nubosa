@@ -18,6 +18,8 @@ in {
     inherit pkgs;
   };
 
+  programs.ssh.extraConfig = "UseKeychain yes";
+
   home.file."Library/LaunchAgents/dev.dobon.nubosa.random-change-wallpaper.plist".source = ../../dotfiles/launch-agents/dev.dobon.nubosa.random-change-wallpaper.plist;
 
   # Disable the creation of `.DS_Store` files on Network and USB mounted devices

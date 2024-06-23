@@ -41,6 +41,7 @@ in {
 
   services.udiskie.enable = true;
   services.cliphist.enable = true;
+  services.ssh-agent.enable = true;
 
   programs.tofi = import ./programs/tofi.nix;
 

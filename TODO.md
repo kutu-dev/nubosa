@@ -7,6 +7,7 @@
 
 ### nvim
 - Add `oil.nvim`.
+- Try to fix treesitter highlighting.
 
 ## NixOS
 - Add `ssh-keyring` support.
