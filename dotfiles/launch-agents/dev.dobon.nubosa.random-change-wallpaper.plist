@@ -13,6 +13,6 @@
     <key>LaunchOnlyOnce</key>
     <true/>
     <key>Program</key>
-    <string>/etc/profiles/per-user/kutu/bin/random-change-wallpaper</string>
+    <string>/Users/kutu/.nix-profile/bin/cumulus wallpaper set</string>
 </dict>
 </plist>

@@ -14,6 +14,7 @@
             inputs.nur.overlay
             (final: prev: {
               cumulus = inputs.cumulus.packages."${system}".default;
+              nil = inputs.nil.packages."${system}".default;
             })
           ]
           ++ extraOverlays;
@@ -42,13 +43,14 @@
       shellcheck = pkgs.shellcheck;
       shfmt = pkgs.shfmt;
       jq = pkgs.jq;
+      stylua = pkgs.stylua;
 
       home-manager = inputs.home-manager.packages."${system}".default;
       nix-darwin = inputs.nix-darwin.packages."${system}".default;
       mac-app-util = inputs.mac-app-util.packages."${system}".default;
     });
 
-    apps = forAllSystems({
+    apps = forAllSystems ({
       pkgs,
       system,
     }: {
@@ -122,6 +124,9 @@
 
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
+
+    nil.url = "github:oxalica/nil";
+    nil.inputs.nixpkgs.follows = "nixpkgs";
 
     cumulus.url = "path:./cumulus";
     cumulus.inputs.nixpkgs.follows = "nixpkgs";

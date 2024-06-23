@@ -14,6 +14,7 @@ check: lock-cumulus
   nix fmt
   nix run .#shfmt -- .
   ./scripts/misc/check-justfile.sh
+  nix run .#stylua -- dotfiles/nvim/
 
 # Update and relock the inputs of the flake
 update:

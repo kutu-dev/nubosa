@@ -1,9 +1,9 @@
 # Regenerate the system configurations for valhalla
-switch-system-valhalla: lock-cumulus
+switch-system-valhalla:
   sudo nixos-rebuild switch --flake .#valhalla
 
 # Regenerate the home configurations for valhalla
-switch-home-valhalla: lock-cumulus
+switch-home-valhalla:
   nix run .#home-manager -- switch --flake .#valhalla
 
   # Install the latest available GE-Proton version

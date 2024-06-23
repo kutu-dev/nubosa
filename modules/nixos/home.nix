@@ -67,7 +67,10 @@ in {
     {
       ags.source = functions.dotfilesSymlink "ags";
     }
-    // import ../common/config-files.nix {dotfilesSymlink = functions.dotfilesSymlink;};
+    // import ../common/config-files.nix {
+      dotfilesSymlink = functions.dotfilesSymlink;
+      inherit pkgs;
+    };
 
   xdg.userDirs = {
     enable = true;

@@ -9,15 +9,15 @@
     scriptsPath = ../../scripts/macos;
   };
 
-  extraPackages = [
-    (functions.createScript "random-change-wallpaper.sh")
-  ];
 in {
   home.homeDirectory = "/Users/${config.home.username}";
 
-  home.packages = pkgs.callPackage ../common/packages.nix {} ++ extraPackages;
+  home.packages = pkgs.callPackage ../common/packages.nix {};
 
-  xdg.configFile = import ../common/config-files.nix {dotfilesSymlink = functions.dotfilesSymlink;};
+  xdg.configFile = import ../common/config-files.nix {
+    dotfilesSymlink = functions.dotfilesSymlink;
+    inherit pkgs;
+  };
 
   home.file."Library/LaunchAgents/dev.dobon.nubosa.random-change-wallpaper.plist".source = ../../dotfiles/launch-agents/dev.dobon.nubosa.random-change-wallpaper.plist;
 
