@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./header.jpg" width="275">
+<img src="./static/cloud-texture-10.jpg" width="275">
 <h1>Nubosa</h1>
 
 Ergonomic, pragmatical dotfiles and scripts for personal usage powered by [Nix](https://nixos.org/) available on both NixOS and macOS.

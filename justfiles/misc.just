@@ -7,7 +7,7 @@ nix_config_path := `echo ${XDG_CONFIG_HOME:-$HOME/.config}/nix/`
 # Generate Nix config to allow the new subcommands and activate flake support
 setup:
   mkdir -p {{nix_config_path}}
-  cp platform/common/dotfiles/nix/nix.conf {{nix_config_path}}
+  cp dotfiles/nix/nix.conf {{nix_config_path}}
 
 # Format and lint all NIX and POSIX shell files
 check: lock-cumulus
