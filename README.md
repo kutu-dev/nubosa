@@ -11,6 +11,6 @@
 - Remove default folder.
 - rm -r `~/Sync`.
 - Add the other device.
-- Set un Syncthing:
+- Set up Syncthing:
     - `~/documents/dev`
     - `~/pictures/wallpapers`
