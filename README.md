@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./header.jpg">
+<img src="./header.jpg" width="400">
 <h1>Nubosa</h1>
 
 Ergonomic, pragmatical dotfiles and scripts for personal usage.
