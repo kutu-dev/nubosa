@@ -1,17 +1,14 @@
-from .state import State
-from .logging import error, warning
-from .apply_theme import apply_theme
-from .wallpaper import get_wallpaper, set_wallpaper
-
-from typing_extensions import Annotated
-import random
-from colorama import Fore, Style
-import subprocess
-import typer
-import sys
-from pathlib import Path
 import tomllib
-import platform
+from pathlib import Path
+
+import typer
+from colorama import Fore, Style
+from typing_extensions import Annotated
+
+from .apply_theme import apply_theme
+from .logging import warning
+from .state import State
+from .wallpaper import get_wallpaper, set_wallpaper
 
 app = typer.Typer(no_args_is_help=True)
 state = State()
@@ -19,10 +16,10 @@ state = State()
 
 @app.callback()
 def main(
-    config: Annotated[Path, typer.Option("-c", "--config")] = None,
-    data: Annotated[Path, typer.Option("-d", "--data")] = None,
-    wallpaper: Annotated[Path, typer.Option("-w", "--wallpaper")] = None,
-):
+    config: Annotated[Path, typer.Option("-c", "--config")] | None = None,
+    data: Annotated[Path, typer.Option("-d", "--data")] | None = None,
+    wallpaper: Annotated[Path, typer.Option("-w", "--wallpaper")] | None = None,
+) -> None:
     """CLI utility for the Nubosa system"""
 
     if config:
@@ -52,14 +49,16 @@ def list() -> None:
     for theme in state.config_path.glob("*"):
         if not theme.is_dir():
             warning(
-                f'Themes directory at "{state.config_path}" is polluted with non directory type file "{theme.name}"'
+                f'Themes directory at "{state.config_path}" is polluted with '
+                + f'non directory type file "{theme.name}"'
             )
             continue
 
         with open(theme / "manifest.toml", "rb") as file:
             theme_manifest = tomllib.load(file)
             print(
-                f"  - {Fore.CYAN}{theme_manifest["name"]}{Style.RESET_ALL} ({theme.name})"
+                f"  - {Fore.CYAN}{theme_manifest["name"]}{Style.RESET_ALL} "
+                + f"({theme.name})"
             )
             any_theme_detected = True
 
@@ -77,7 +76,7 @@ app.add_typer(wallpaper, name="wallpaper")
 
 
 @wallpaper.command("get")
-def get() -> Path:
+def get() -> None:
     get_wallpaper(state.data_path, state.wallpaper_path)
 
 

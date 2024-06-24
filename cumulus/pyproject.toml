@@ -19,13 +19,6 @@ authors = [
 [project.scripts]
 cumulus = 'cumulus.__main__:app'
 
-[project.optional-dependencies]
-dev = [
-    "pip-tools>=7.4.1",
-    "ruff>=0.1.2",
-    "mypy>=1.4.1",
-]
-
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"

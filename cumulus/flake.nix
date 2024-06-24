@@ -48,7 +48,14 @@
 
     devShells = forAllSystems (pkgs: {
       default = pkgs.mkShell {
-        buildInputs = getDependencies pkgs;
+        buildInputs =
+          (getDependencies pkgs)
+          ++ [
+            pkgs.python312Packages.mypy
+            pkgs.ruff
+            pkgs.python312Packages.types-colorama
+            pkgs.python312Packages.types-pyyaml
+          ];
       };
     });
   };

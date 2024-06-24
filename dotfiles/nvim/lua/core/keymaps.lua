@@ -1,7 +1,5 @@
 local keymap = vim.keymap.set
 
-keymap("n", "<leader>n", vim.cmd.Ex)
-
 -- Allow moving between line breaks
 keymap("n", "j", "gj")
 keymap("n", "k", "gk")
@@ -72,3 +70,6 @@ end)
 
 -- Preview Markdown files
 keymap("n", "<leader>p", ":Glow<cr>")
+
+-- Oil
+keymap("n", "<leader>n", ":Oil<cr>")

@@ -18,8 +18,13 @@
     extraConfig.push.autoSetupRemote = true;
   };
 
-  programs.ssh.enable = true;
-  programs.ssh.addKeysToAgent = "yes";
+  programs.ssh = {
+    enable = true;
+    addKeysToAgent = "yes";
+  };
+
+  services.ssh-agent.enable = true;
+  services.syncthing.enable = true;
 
   programs.btop = {
     enable = true;

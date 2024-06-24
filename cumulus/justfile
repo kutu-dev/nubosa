@@ -1,0 +1,7 @@
+# Default recipe of the file
+default: check
+
+check:
+  nix develop --command sh -c "mypy src/cumulus"
+  nix develop --command sh -c "ruff format src/cumulus"
+  nix develop --command sh -c "ruff check --fix src/cumulus"

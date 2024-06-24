@@ -20,7 +20,10 @@ if status is-interactive
     abbr -a ls "eza --icons --git"
     abbr -a tree "eza --icons --git --tree"
     abbr -a cd "z"
+
+  # # Nix abbreviations
     abbr -a nd 'nix develop -c "fish"'
+    abbr -a --set-cursor="cursor" ns 'nix shell nixpkgs#cursor --command "fish"'
 
     # Git abbreviations
     abbr -a gs "git status"

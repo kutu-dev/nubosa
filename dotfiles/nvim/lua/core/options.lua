@@ -5,6 +5,7 @@ local options = {
 	softtabstop = 2,
 	spell = true,
 	spelllang = { "en", "es" },
+	cmdheight = 0,
 }
 
 local global = {

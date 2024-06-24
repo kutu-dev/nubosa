@@ -1,19 +1,19 @@
-from .wallpaper import set_wallpaper
-from .state import State
-from .logging import error
-
-from pathlib import Path
 import os
-import time
-import sys
-from jinja2 import Environment, PackageLoader
-import yaml
-import tomllib
-from platformdirs import user_documents_dir
-from colorama import Fore, Style
 import shutil
 import subprocess
+import sys
+import time
+import tomllib
+from pathlib import Path
 
+import yaml
+from colorama import Fore, Style
+from jinja2 import Environment, PackageLoader
+from platformdirs import user_documents_dir
+
+from .logging import error
+from .state import State
+from .wallpaper import set_wallpaper
 
 # Bad trick to make a valid environment for both when the package is installed
 # or it's just being called to the local module `python3 -m src.cumulus`
@@ -27,7 +27,9 @@ except ModuleNotFoundError:
     )
 
 
-def apply_template(template_name: str, target_file_path: Path, **variables) -> None:
+def apply_template(
+    template_name: str, target_file_path: Path, **variables: str
+) -> None:
     print(f"  - Applying template: {Fore.BLUE}{template_name}{Style.RESET_ALL}")
 
     template = ENVIRONMENT.get_template(f"{template_name}.jinja")
@@ -79,6 +81,7 @@ def apply_base_16(theme_path: Path, nubosa_path: Path, dotfiles_path: Path) -> N
             ("ags", dotfiles_path / "ags/style.css"),
             ("vesktop", dotfiles_path / "vesktop/themes/theme.css"),
             ("tofi", nubosa_path / "modules/nixos/programs/tofi.nix"),
+            ("nvim-lualine", dotfiles_path / "nvim/lua/plugins/lualine.lua"),
         ]
 
         for template_name, template_path in templates:
@@ -93,7 +96,7 @@ def apply_base_16(theme_path: Path, nubosa_path: Path, dotfiles_path: Path) -> N
 
 def apply_stylix(theme_path: Path, nubosa_path: Path, dotfiles_path: Path) -> None:
     print(f"  - Rebuilding {Fore.BLUE}Stylix{Style.RESET_ALL} based files...")
-    print(f"      - Running Home Manager switch, it may take some time....")
+    print("      - Running Home Manager switch, it may take some time....")
     shutil.copy(
         theme_path / "base-16.yaml",
         dotfiles_path / "stylix/theme.yaml",
@@ -105,7 +108,7 @@ def apply_stylix(theme_path: Path, nubosa_path: Path, dotfiles_path: Path) -> No
     )
 
 
-def save_applied_theme(theme_name, data_path: Path) -> None:
+def save_applied_theme(theme_name: str, data_path: Path) -> None:
     applied_theme_info_path = data_path / "applied-theme.txt"
     applied_theme_info_path.touch()
 

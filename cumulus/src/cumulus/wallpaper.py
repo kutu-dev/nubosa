@@ -1,10 +1,10 @@
-from .state import State
-from .logging import error
+import platform
 import random
 import subprocess
 import sys
 from pathlib import Path
-import platform
+
+from .logging import error
 
 
 def get_wallpaper(
@@ -49,7 +49,8 @@ def set_wallpaper(data_path: Path, wallpaper_path: Path) -> Path:
             [
                 "osascript",
                 "-e",
-                f'tell application "Finder" to set desktop picture to POSIX file "{random_wallpaper}"',
+                'tell application "Finder" to set desktop '
+                + f'picture to POSIX file "{random_wallpaper}"',
             ]
         )
 

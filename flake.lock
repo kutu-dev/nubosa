@@ -157,7 +157,7 @@
       },
       "locked": {
         "lastModified": 1,
-        "narHash": "sha256-FnvxJRfXnw3OOZLQp44wUjBtPuYcskWvlQ5lMXYgUts=",
+        "narHash": "sha256-YaQDdfyxKAh6WJNfSYFlcYcqdnRMH4UDj/1u+xVHmrk=",
         "path": "./cumulus",
         "type": "path"
       },
