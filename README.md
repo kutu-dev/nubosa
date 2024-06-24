@@ -86,3 +86,7 @@ Imperative configurations that are not generic and may (and probably) need manua
     - `$HOME/documents/dev`
     - `$HOME/pictures/wallpapers`
     - `$HOME/documents/aorta`
+
+## Acknowledgements
+- Created with :heart: by [Jorge "Kutu" Dobón Blanco](https://dobon.dev).
+- [Cloud Texture 10](https://www.flickr.com/photos/31288116@N02/3909270081) image by [SixRevisions](https://www.flickr.com/photos/31288116@N02/) licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
