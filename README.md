@@ -33,7 +33,7 @@ There are two different available hosts `valhalla`, a desktop PC with NixOS, and
 First set your own `hardware-configuration.nix`:
 ```sh
 nixos-generate-config
-cp /etc/nixos/hardware-configuration
+cp /etc/nixos/hardware-configuration.nix modules/nixos/
 ```
 
 And apply the config:
