@@ -23,6 +23,8 @@
     prismlauncher
     hyprpicker
     swww
+    xdg-utils
+    qimgv
   ];
 
   extraScripts = [
@@ -64,6 +66,8 @@ in {
     };
   };
 
+  xdg.enable = true;
+
   xdg.configFile =
     {
       ags.source = functions.dotfilesSymlink "ags";
@@ -86,12 +90,27 @@ in {
     videos = "${config.home.homeDirectory}/videos/";
   };
 
+  xdg.mime.enable = true;
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "text/html" = "firefox-developer-edition.desktop";
+      "x-scheme-handler/http" = "firefox-developer-edition.desktop";
+      "x-scheme-handler/https" = "firefox-developer-edition.desktop";
+      "x-scheme-handler/about" = "firefox-developer-edition.desktop";
+      "x-scheme-handler/unknown" = "firefox-developer-edition.desktop";
+
+      "image/jpeg" = "qimgv.desktop";
+      "image/png" = "qimgv.desktop";
+    };
+  };
+
   # Fix for profile not loading by default for being in a symlink
   # making Firefox crash
   xdg.desktopEntries.firefox-developer-edition = {
     name = "Firefox Developer Edition";
     genericName = "Web Browser";
-    exec = "firefox-developer-edition --profile ${config.home.homeDirectory}/.mozilla/firefox/kutu/";
+    exec = "firefox-developer-edition --profile ${config.home.homeDirectory}/.mozilla/firefox/kutu/ %U";
     terminal = false;
     categories = ["Application" "Network" "WebBrowser"];
     mimeType = ["text/html" "text/xml"];
