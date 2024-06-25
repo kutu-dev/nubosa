@@ -18,6 +18,7 @@ nix-shell -p just -p git
 It is expected the dotfiles to be located at `$HOME/documents/dev/nubosa`, so set it up there:
 ```sh
 mkdir -p $HOME/documents/dev/nubosa
+cd $HOME/documents/dev/nubosa
 git clone git@github.com:kutu-dev/nubosa.git
 ```
 
