@@ -1,5 +1,5 @@
 # TODO
 
 ## Common
-- Add README.md with a tour.
-- SyncThing.
+- Add to README.md HACKING.md link.
+- Finish HACKING.md.

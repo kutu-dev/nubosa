@@ -23,6 +23,7 @@
     addKeysToAgent = "yes";
   };
 
+  services.ssh-agent.enable = true;
   services.syncthing.enable = true;
 
   programs.btop = {
@@ -47,6 +48,11 @@
     gc = {
       automatic = true;
       options = "--delete-older-than 7d";
+    };
+
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = ["nix-command" "flakes"];
     };
   };
 }
