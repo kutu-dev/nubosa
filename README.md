@@ -89,7 +89,7 @@ Imperative configurations that are not generic and may (and probably) need manua
     - `$HOME/documents/aorta`
 
 ## Hacking
-If you are interested on modifing Nubosa to tailor it to your needs it is recommended to first read the [`HACKING.md`](./hacking.md) file.
+If you are interested on modifing Nubosa to tailor it to your needs it is recommended to first read the [`HACKING.md`](./HACKING.md) file.
 
 ## Acknowledgements
 - Created with :heart: by [Jorge "Kutu" Dobón Blanco](https://dobon.dev).
