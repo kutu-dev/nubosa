@@ -1,4 +1,5 @@
 # TODO
 
 ## Common
-- Add README.md with a tour.
+- Add to README.md HACKING.md link.
+- Finish HACKING.md.
