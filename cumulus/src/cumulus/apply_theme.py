@@ -108,14 +108,6 @@ def apply_stylix(theme_path: Path, nubosa_path: Path, dotfiles_path: Path) -> No
     )
 
 
-def save_applied_theme(theme_name: str, data_path: Path) -> None:
-    applied_theme_info_path = data_path / "applied-theme.txt"
-    applied_theme_info_path.touch()
-
-    with open(applied_theme_info_path, "w") as file:
-        file.write(theme_name + "\n")
-
-
 def reopen_wezterm() -> None:
     # Do a double fork
     if os.fork() != 0:
@@ -150,6 +142,14 @@ def restart_apps() -> None:
         subprocess.run(["pkill", process])
 
 
+def save_applied_theme(theme_name: str, config_path: Path) -> None:
+    applied_theme_info_path = config_path / "applied-theme.txt"
+    applied_theme_info_path.touch()
+
+    with open(applied_theme_info_path, "w") as file:
+        file.write(theme_name + "\n")
+
+
 def apply_theme(theme_name: str, state: State) -> None:
     theme_path = state.config_path / theme_name
 
@@ -164,9 +164,9 @@ def apply_theme(theme_name: str, state: State) -> None:
     apply_base_16(theme_path, nubosa_path, dotfiles_path)
     apply_stylix(theme_path, nubosa_path, dotfiles_path)
 
-    save_applied_theme(theme_name, state.data_path)
+    save_applied_theme(theme_name, state.config_path)
 
-    wallpaper_path = set_wallpaper(state.data_path, state.wallpaper_path)
+    wallpaper_path = set_wallpaper(state.config_path, state.wallpaper_path)
     print(f'  - Applied wallpaper {Fore.CYAN}"{wallpaper_path}"{Style.RESET_ALL}')
 
     restart_apps()

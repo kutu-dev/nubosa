@@ -8,9 +8,9 @@ from .logging import error
 
 
 def get_wallpaper(
-    data_path: Path, wallpaper_path: Path, print_path: bool = True
+    config_path: Path, wallpaper_path: Path, print_path: bool = True
 ) -> Path:
-    applied_theme_info_path = data_path / "applied-theme.txt"
+    applied_theme_info_path = config_path / "applied-theme.txt"
 
     if not applied_theme_info_path.is_file():
         error("No theme currently applied")
@@ -37,8 +37,8 @@ def get_wallpaper(
         return random_wallpaper
 
 
-def set_wallpaper(data_path: Path, wallpaper_path: Path) -> Path:
-    random_wallpaper = get_wallpaper(data_path, wallpaper_path, print_path=False)
+def set_wallpaper(config_path: Path, wallpaper_path: Path) -> Path:
+    random_wallpaper = get_wallpaper(config_path, wallpaper_path, print_path=False)
     system = platform.system()
 
     if system == "Linux":

@@ -25,14 +25,10 @@ def main(
     if config:
         state.config_path = config.absolute()
 
-    if data:
-        state.data_path = data.absolute()
-
     if wallpaper:
         state.wallpaper_path = wallpaper.absolute()
 
     state.config_path.mkdir(parents=True, exist_ok=True)
-    state.data_path.mkdir(parents=True, exist_ok=True)
     state.wallpaper_path.mkdir(parents=True, exist_ok=True)
 
 
@@ -47,6 +43,9 @@ def list() -> None:
 
     print("Themes:")
     for theme in state.config_path.glob("*"):
+        if theme.name == "applied-theme.txt":
+            continue
+
         if not theme.is_dir():
             warning(
                 f'Themes directory at "{state.config_path}" is polluted with '
@@ -77,12 +76,12 @@ app.add_typer(wallpaper, name="wallpaper")
 
 @wallpaper.command("get")
 def get() -> None:
-    get_wallpaper(state.data_path, state.wallpaper_path)
+    get_wallpaper(state.config_path, state.wallpaper_path)
 
 
 @wallpaper.command("set")
 def set() -> None:
-    wallpaper_path = set_wallpaper(state.data_path, state.wallpaper_path)
+    wallpaper_path = set_wallpaper(state.config_path, state.wallpaper_path)
     print(f'Applied wallpaper {Fore.CYAN}"{wallpaper_path}"{Style.RESET_ALL}')
 
 

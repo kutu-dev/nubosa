@@ -15,5 +15,4 @@ def get_xdg_path(environment_name: str, fallback_path_name: str) -> Path:
 @dataclass
 class State:
     config_path = get_xdg_path("CONFIG", "config")
-    data_path = get_xdg_path("DATA", "local/share")
     wallpaper_path = Path(user_pictures_dir()) / "wallpapers"
