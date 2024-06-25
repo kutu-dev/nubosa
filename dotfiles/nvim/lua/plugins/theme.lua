@@ -2,8 +2,7 @@
 -- Do NOT edit it directly, all changes may be removed
 
 return {
-  "nyoom-engineering/oxocarbon.nvim",
-  lazy = false,
-  priority = 1000,
-  
+	"nyoom-engineering/oxocarbon.nvim",
+	lazy = false,
+	priority = 1000,
 }

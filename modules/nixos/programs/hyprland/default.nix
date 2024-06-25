@@ -14,7 +14,7 @@
 
         numlock_by_default = true;
         accel_profile = "flat";
-        force_no_accel=true;
+        force_no_accel = true;
       }
       // import ./binds.nix;
 
