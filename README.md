@@ -87,6 +87,9 @@ Imperative configurations that are not generic and may (and probably) need manua
     - `$HOME/pictures/wallpapers`
     - `$HOME/documents/aorta`
 
+## Hacking
+If you are interested on modifing Nubosa to tailor it to your needs it is recommended to first read the [`HACKING.md`](./hacking.md) file.
+
 ## Acknowledgements
 - Created with :heart: by [Jorge "Kutu" Dobón Blanco](https://dobon.dev).
 - [Cloud Texture 10](https://www.flickr.com/photos/31288116@N02/3909270081) image by [SixRevisions](https://www.flickr.com/photos/31288116@N02/) licensed under [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/).
