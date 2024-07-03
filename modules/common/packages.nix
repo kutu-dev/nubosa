@@ -14,11 +14,11 @@ with pkgs; [
     ];
   })
   glow
+  obs-studio
 
   # For nvim
   lua-language-server
   ruff
-
   vimPlugins.nvim-treesitter.withAllGrammars
 
   # Custom overrides

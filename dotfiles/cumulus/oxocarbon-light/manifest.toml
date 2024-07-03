@@ -1,0 +1,4 @@
+name = "Oxocarbon Light"
+nvim_theme = "nyoom-engineering/oxocarbon.nvim"
+nvim_colorscheme = "oxocarbon"
+nvim_background = "light"

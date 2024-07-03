@@ -7,7 +7,7 @@ switch-home-valhalla: lock-cumulus
   nix run .#home-manager -- switch --flake .#valhalla
 
   # Install the latest available GE-Proton version
-  STEAM_EXTRA_COMPAT_TOOLS_PATHS="$HOME/.steam/root/compatibilitytools.d/" protonup -y
+  #STEAM_EXTRA_COMPAT_TOOLS_PATHS="$HOME/.steam/root/compatibilitytools.d/" protonup -y
 
   # To make sure new installed applications are detected by tofi
   rm -f "${XDG_CACHE_HOME:-$HOME/.cache}/tofi-drun"

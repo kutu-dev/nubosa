@@ -23,6 +23,8 @@
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
         ublock-origin
+        clearurls
+        indie-wiki-buddy
       ];
 
       bookmarks = [

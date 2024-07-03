@@ -25,6 +25,8 @@
     swww
     xdg-utils
     qimgv
+    sshfs
+    rpcs3
   ];
 
   extraScripts = [

@@ -19,3 +19,4 @@ switch-system:
 # Regenerate the user configurations
 switch-home:
   just switch-home-{{hostname}}
+  mkdir -p $HOME/mounts/luminosa

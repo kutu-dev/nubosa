@@ -13,6 +13,8 @@
   "XCURSOR_THEME, Bibata-Modern-Classic"
 
   # SDL2 settings
+  # Some games may need to be set with SDL_VIDEODRIVER=x11
+  # if they bundle an older non Wayland compatible SDL2 version
   "SDL_VIDEODRIVER, wayland"
 
   # Clutter settings

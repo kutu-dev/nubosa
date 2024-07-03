@@ -52,6 +52,7 @@
 
   hardware.xone.enable = true;
 
+
   # Also set the drive for Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -78,6 +79,8 @@
 
     gamemode.enable = true;
   };
+
+  services.tailscale.enable = true;
 
   xdg.portal = {
     enable = true;

@@ -10,7 +10,7 @@ to their default color
 */
 label {
   font-weight: bold;
-  color: #525252;
+  color: #393939;
 }
 
 .window {
@@ -45,6 +45,7 @@ label {
 .power-button {
   min-width: 120px;
   min-height: 120px;
+  background-color: #262626;
 }
 
 .power-button--poweroff > label {
