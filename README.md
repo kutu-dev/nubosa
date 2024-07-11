@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./static/cloud-texture-10.jpg" width="275">
+<img src="./static/cloud-texture-10.jpg" alt="Photo of a cloudy sky" width="275">
 <h1>Nubosa</h1>
     
 ![nixpkgs version logo](https://img.shields.io/badge/nixpkgs-unstable-informational.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8aadf4)
