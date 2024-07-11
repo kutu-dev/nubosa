@@ -9,7 +9,7 @@ config.default_prog = { user_home .. "/.nix-profile/bin/fish" }
 config.enable_wayland = false
 
 -- TODO: Remove when https://github.com/wez/wezterm/issues/5482 is fixed
-config.disable_default_mouse_bindings = true
+--config.disable_default_mouse_bindings = true
 
 config.window_close_confirmation = "NeverPrompt"
 

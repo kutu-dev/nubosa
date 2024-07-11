@@ -16,7 +16,6 @@
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    socat
     pavucontrol
     protonup
     mangohud

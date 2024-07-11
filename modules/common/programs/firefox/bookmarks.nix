@@ -1,5 +1,9 @@
 [
   {
+    name = "Luminosa";
+    url = "https://home.dobon.dev";
+  }
+  {
     name = "YouTube";
     url = "https://youtube.com";
   }
@@ -35,5 +39,9 @@
   {
     name = "Backloggd";
     url = "https://backloggd.com";
+  }
+  {
+    name = "Syncthing";
+    url = "https://localhost:8384";
   }
 ]
