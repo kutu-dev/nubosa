@@ -1,6 +1,11 @@
 <div align="center">
 <img src="./static/cloud-texture-10.jpg" width="275">
 <h1>Nubosa</h1>
+    
+![nixpkgs version logo](https://img.shields.io/badge/nixpkgs-unstable-informational.svg?style=flat&logo=nixos&logoColor=CAD3F5&colorA=24273A&colorB=8aadf4)
+![nixOS logo](https://img.shields.io/badge/NixOS-24273A.svg?style=flat&logo=nixos&logoColor=CAD3F5)
+![macOS logo](https://img.shields.io/badge/macOS-000000?style=flat&logo=apple&labelColor=000000)
+![Python version logo](https://img.shields.io/badge/python%203.12.3%2B-3776AB?style=flat&logo=python&logoColor=FFFFFF)
 
 Ergonomic, pragmatical dotfiles and scripts for personal usage powered by [Nix](https://nixos.org/) available on both NixOS and macOS. With an integrated CLI for theme and wallpaper management.
 </div>
