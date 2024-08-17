@@ -371,29 +371,13 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1723914488,
-        "narHash": "sha256-OOk0BeGAcuPnJZo38Q0eWlWY5GR+Nfu10yBlsLQrn+E=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "7d9bda338de35eb58bc4979ef265fd834015c268",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nur": {
       "locked": {
-        "lastModified": 1723914626,
-        "narHash": "sha256-J4XS45h+XfKcW/LxNQGnJha+lOmXgbEjp2wsYwQfN4c=",
+        "lastModified": 1723916851,
+        "narHash": "sha256-tglDkZvj/PZkBS4NWX+SIGVbyIl9CzGhO82zl36bIb8=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "357cdf40637f1ea4aa386fabef913023f88a118b",
+        "rev": "2ce832220c093b55c023b43931bc39e26af55f1c",
         "type": "github"
       },
       "original": {
@@ -411,7 +395,6 @@
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
         "nixpkgs-firefox-darwin": "nixpkgs-firefox-darwin",
-        "nixpkgs-master": "nixpkgs-master",
         "nur": "nur",
         "stylix": "stylix"
       }
