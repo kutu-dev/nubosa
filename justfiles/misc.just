@@ -25,6 +25,14 @@ update:
 lock-cumulus:
   nix flake lock --update-input cumulus
 
+clean:
+  nix-store --gc
+  sudo nix-collect-garbage -d
+  nix-collect-garbage -d
+  nix-store --optimise
+  sudo rm -f /run/booted-system
+  sudo nix-collect-garbage
+
 # See all the things that need to be done
 todo:
   glow TODO.md

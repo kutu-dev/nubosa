@@ -6,7 +6,7 @@ with pkgs; [
   fish
   fortune
   eza
-  wezterm
+  kitty
   jetbrains-mono
   (nerdfonts.override {
     fonts = [
@@ -14,6 +14,7 @@ with pkgs; [
     ];
   })
   glow
+  nil
 
   # For nvim
   lua-language-server
@@ -23,5 +24,4 @@ with pkgs; [
 
   # Custom overrides
   cumulus
-  nil
 ]

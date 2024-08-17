@@ -14,7 +14,6 @@
             inputs.nur.overlay
             (final: prev: {
               cumulus = inputs.cumulus.packages."${system}".default;
-              nil = inputs.nil.packages."${system}".default;
             })
           ]
           ++ extraOverlays;
@@ -124,9 +123,6 @@
 
     stylix.url = "github:danth/stylix";
     stylix.inputs.nixpkgs.follows = "nixpkgs";
-
-    nil.url = "github:oxalica/nil";
-    nil.inputs.nixpkgs.follows = "nixpkgs";
 
     cumulus.url = "path:./cumulus";
     cumulus.inputs.nixpkgs.follows = "nixpkgs";
