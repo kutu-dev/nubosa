@@ -13,6 +13,7 @@
           [
             inputs.nur.overlay
             (final: prev: {
+              master = import inputs.nixpkgs-master { inherit system; };
               cumulus = inputs.cumulus.packages."${system}".default;
             })
           ]
@@ -102,6 +103,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     nixpkgs-firefox-darwin.url = "github:bandithedoge/nixpkgs-firefox-darwin";
     nixpkgs-firefox-darwin.inputs.nixpkgs.follows = "nixpkgs";

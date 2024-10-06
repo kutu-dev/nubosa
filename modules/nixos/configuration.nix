@@ -10,6 +10,8 @@
   networking.hostName = "valhalla";
   networking.networkmanager.enable = true;
 
+  virtualisation.docker.enable = true;
+
   time.timeZone = "Europe/Madrid";
 
   i18n.defaultLocale = "en_GB.UTF-8";
@@ -30,7 +32,7 @@
   users.users.kutu = {
     isNormalUser = true;
     description = "kutu";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = ["networkmanager" "wheel" "docker"];
   };
 
   services.getty.autologinUser = "kutu";

@@ -7,6 +7,7 @@ config.default_prog = { user_home .. "/.nix-profile/bin/fish" }
 
 -- Without disabling Wayland the terminal will just crash at startup
 config.enable_wayland = false
+config.front_end = "WebGpu"
 
 -- TODO: Remove when https://github.com/wez/wezterm/issues/5482 is fixed
 --config.disable_default_mouse_bindings = true

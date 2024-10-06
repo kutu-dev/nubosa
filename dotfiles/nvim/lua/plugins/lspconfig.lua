@@ -26,5 +26,14 @@ return {
     lspconfig.ruff.setup({})
     lspconfig.nil_ls.setup({})
     lspconfig.ccls.setup({})
+    lspconfig.rust_analyzer.setup({
+      settings = {
+        ["rust-analyzer"] = {
+          checkOnSave = {
+            command = "clippy",
+          },
+        },
+      }
+    })
   end,
 }

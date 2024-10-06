@@ -15,6 +15,10 @@ with pkgs; [
   })
   glow
   nil
+  spotify
+  obsidian
+  aseprite
+  ungoogled-chromium
 
   # For nvim
   lua-language-server
@@ -24,4 +28,5 @@ with pkgs; [
 
   # Custom overrides
   cumulus
+  master.wezterm
 ]
