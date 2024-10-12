@@ -17,8 +17,6 @@ with pkgs; [
   nil
   spotify
   obsidian
-  aseprite
-  ungoogled-chromium
 
   # For nvim
   lua-language-server
