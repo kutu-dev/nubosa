@@ -17,10 +17,12 @@ with pkgs; [
   nil
   spotify
   obsidian
+  ungoogled-chromium
 
   # For nvim
   lua-language-server
   ruff
+  mypy
   ccls
   vimPlugins.nvim-treesitter.withAllGrammars
 

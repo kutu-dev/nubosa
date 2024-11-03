@@ -7,12 +7,17 @@
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  services.sysstat.enable = true;
+
   networking.hostName = "valhalla";
   networking.networkmanager.enable = true;
 
   virtualisation.docker.enable = true;
 
+  programs.droidcam.enable = true;
   time.timeZone = "Europe/Madrid";
+
+  powerManagement.cpuFreqGovernor = "performance";
 
   i18n.defaultLocale = "en_GB.UTF-8";
   i18n.extraLocaleSettings = {

@@ -14,7 +14,7 @@
     slurp
     grim
     noto-fonts
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
     noto-fonts-emoji
     pavucontrol
     protonup
@@ -25,7 +25,6 @@
     xdg-utils
     qimgv
     sshfs
-    rpcs3
   ];
 
   extraScripts = [
