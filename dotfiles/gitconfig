@@ -1,3 +1,6 @@
 [user]
 	email = git@dobon.com
 	name = Kutu
+
+[push]
+	autoSetupRemote = true
